@@ -1,0 +1,2 @@
+class VotingHistoriesController < ApplicationController
+end

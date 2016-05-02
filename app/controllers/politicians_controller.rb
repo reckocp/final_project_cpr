@@ -1,0 +1,2 @@
+class PoliticiansController < ApplicationController
+end

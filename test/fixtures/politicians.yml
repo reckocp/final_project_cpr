@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  party: MyString
+  description: MyText
+  served_area: MyString
+  next_election: MyString
+  location_id: 
+
+two:
+  name: MyString
+  party: MyString
+  description: MyText
+  served_area: MyString
+  next_election: MyString
+  location_id: 

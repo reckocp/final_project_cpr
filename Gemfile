@@ -51,7 +51,10 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'faker'
 gem 'kaminari'
 gem 'bcrypt'
+
 group :production do
   gem 'puma'
   gem 'rails_12factor'
 end
+
+gem 'mocha', group: :test

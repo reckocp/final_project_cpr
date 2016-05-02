@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bill_name: MyString
+  description: MyText
+  decision: MyString
+  politician_id: 
+
+two:
+  bill_name: MyString
+  description: MyText
+  decision: MyString
+  politician_id: 
