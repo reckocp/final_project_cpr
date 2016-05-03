@@ -11,8 +11,13 @@ class PoliticiansController < ApplicationController
 
   def collectPoliticians
     address = URI.encode(params[:address])
-    HTTParty.get("https://www.googleapis.com/civicinfo/v2/representatives?address=#{address}&key=#{CI.key}")
+    response = HTTParty.get("https://www.googleapis.com/civicinfo/v2/representatives?address=#{address}&key=#{CI.key}")
+    parsed_data = JSON.parse(response.body)
+    @offices = parsed_data['offices']
+    @officials = parsed_data['officials']
+    return [@offices, @officials]
   end
+
 
 
 end
