@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'httparty', '0.13.5'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -52,6 +54,10 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'faker'
 gem 'kaminari'
 gem 'bcrypt'
+
+gem 'google-api-client'
+gem 'dotenv-rails'
+
 
 group :production do
   gem 'puma'
