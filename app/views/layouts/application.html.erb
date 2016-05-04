@@ -7,7 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <nav class='navbar navbar-default navbar-fixed-top'>
+    <div class="container-fluid">
+      <a class='navbar-brand'>Assembly Point</a>
+      <div class='nav navbar-nav navbar row pull-right'>
+        <div class= "col-xs-3"> <%= link_to "Home", root_path, class: "nav-link" %> </div>
+      </div>
+    </div>
+  </nav>
 <%= yield %>
 
 </body>
