@@ -57,6 +57,8 @@ gem 'bcrypt'
 
 gem 'google-api-client'
 gem 'dotenv-rails'
+gem 'devise'
+
 
 
 group :production do

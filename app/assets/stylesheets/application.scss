@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
-
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ body {
+   margin-top: 10em;
+ }
  nav.navbar-default {
    .navbar-brand {
      font-family: Lato;
@@ -46,3 +50,13 @@
      }
    }
  }
+.dashboard-panels {
+  text-align: center;
+}
+.panel-header {
+  font-weight: bold;
+	border-bottom: 0.1em solid black;
+}
+.initial-page{
+  text-align: center;
+}
