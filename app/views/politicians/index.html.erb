@@ -11,10 +11,12 @@
       <div class="panel panel-default">
         <div class="panel-header">Article Feed</div>
         <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
-          <% @posts.each do |post| %>
-            <p><a href="<%= post.body %>"><%= post.title %></a></p>
-            <%= link_to "View Post", post_path(post.id), method: :get %>
-          <% end %>
+          <ol>
+            <% @posts.each do |post| %>
+                <li><p><a href="<%= post.body %>"><%= post.title %></a></p>
+                <p><%= link_to "View Post", post_path(post.id), method: :get %></p></li>
+            <% end %>
+          </ol>
         </div>
       </div>
     </div>
