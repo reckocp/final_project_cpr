@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
-<h3>WELCOME TO <strong>YOUR</strong> ASSEMBLY POINT <%= current_user.username %></h3>
+<h3>WELCOME TO <strong>YOUR</strong> ASSEMBLY POINT <%= @user.username %></h3>
+<%= link_to "Profile", user_path(@user), method: :get %>
 <% else %>
 <h3> Welcome to <strong>YOUR</strong> ASSEMBLY POINT.</h3>
 <h5>Sign up today for the full experience!</h5>
@@ -54,15 +55,7 @@
     </div>
   </div>
 </div>
-<% @localOffices.each do |office| %>
- <%= office %>
-<% end %>
-<% @stateOffices.each do |office| %>
- <%= office %>
-<% end %>
-<% @nationalOffices.each do |office| %>
- <%= office %>
-<% end %>
+
 <% @politicians.each do |politician| %>
-<%= politician %>
+  <%= politician %> <br /><br /><br />
 <% end %>

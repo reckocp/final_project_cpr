@@ -15,9 +15,9 @@
             <div class="row">
               <% if user_signed_in? %>
                 <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %> </div>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Local", "/", class: "nav-link" %> </div>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "State", "/", method: :delete, class: "nav-link" %> </div>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "National", "/", method: :delete, class: "nav-link" %> </div>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Local", politicians_local_path, method: :get, class: "nav-link" %> </div>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "State", politicians_state_path, method: :get, class: "nav-link" %> </div>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "National", politicians_national_path, method: :get, class: "nav-link" %> </div>
 
               <% else %>
                 <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Sign In", user_session_path, class: "nav-link" %> </div>

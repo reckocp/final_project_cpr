@@ -2,10 +2,16 @@ Rails.application.routes.draw do
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  root 'dashboard#home'
-  resources :politicians do
-    get "local"
+  resources :users, :only => [:show]
+  resources :politicians
+  match 'politicians/local' => 'politicians#local', :via => :get
+  match 'politicians/state' => 'politicians#local', :via => :get
+  match 'politicians/national' => 'politicians#local', :via => :get
+  authenticated do
+    root :to => 'politicians#index', as: :authenticated
   end
+  root :to => 'dashboard#home'
+
 
   resources :posts
   resources :comments
