@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  belongs_to :location
+  belongs_to :user
   has_many :comments
   has_many :upvotes
 
@@ -9,5 +9,5 @@ class Post < ActiveRecord::Base
 
   def vote
     upvotes.count + 1
-  end 
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504194929) do
+ActiveRecord::Schema.define(version: 20160505215200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,37 +28,24 @@ ActiveRecord::Schema.define(version: 20160504194929) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "locations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
-
   create_table "politicians", force: :cascade do |t|
     t.string   "name"
     t.string   "party"
     t.text     "description"
     t.string   "served_area"
     t.string   "next_election"
-    t.integer  "location_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "position"
   end
 
-  add_index "politicians", ["location_id"], name: "index_politicians_on_location_id", using: :btree
-
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
-
-  add_index "posts", ["location_id"], name: "index_posts_on_location_id", using: :btree
 
   create_table "upvotes", force: :cascade do |t|
     t.integer  "user_id"
@@ -104,9 +91,6 @@ ActiveRecord::Schema.define(version: 20160504194929) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "locations", "users"
-  add_foreign_key "politicians", "locations"
-  add_foreign_key "posts", "locations"
   add_foreign_key "upvotes", "posts"
   add_foreign_key "upvotes", "users"
   add_foreign_key "voting_histories", "politicians"

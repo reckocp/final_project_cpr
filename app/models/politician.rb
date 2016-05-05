@@ -1,5 +1,4 @@
 class Politician < ActiveRecord::Base
-  belongs_to :location
   has_many :voting_histories
   include HTTParty
 
@@ -9,5 +8,5 @@ class Politician < ActiveRecord::Base
 
   def self.for politician
     get("", query: { query: politician})["elements"]
-  end 
+  end
 end
