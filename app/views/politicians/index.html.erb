@@ -1,6 +1,12 @@
+<% if user_signed_in? %>
+<h3>WELCOME TO <strong>YOUR</strong> ASSEMBLY POINT <%= current_user.username %></h3>
+<% else %>
+<h3> Welcome to <strong>YOUR</strong> ASSEMBLY POINT.</h3>
+<h5>Sign up today for the full experience!</h5>
+<% end %>
 <div class="container">
   <div class="row">
-    <div class="dashboard-panels col-md-7 col-md-offset-1">
+    <div class="dashboard-panels col-md-8 col-md-offset-0">
       <div class="panel panel-default">
         <div class="panel-header">Article Feed</div>
         <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
@@ -13,7 +19,7 @@
         </div>
       </div>
     </div>
-    <div class="dashboard-panels col-md-2 col-md-offset-1">
+    <div class="dashboard-panels col-md-4 col-md-offset-0">
       <div class="panel panel-default">
         <div class="panel-header">Your Elected Officials</div>
         <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
@@ -48,3 +54,15 @@
     </div>
   </div>
 </div>
+<% @localOffices.each do |office| %>
+ <%= office %>
+<% end %>
+<% @stateOffices.each do |office| %>
+ <%= office %>
+<% end %>
+<% @nationalOffices.each do |office| %>
+ <%= office %>
+<% end %>
+<% @politicians.each do |politician| %>
+<%= politician %>
+<% end %>

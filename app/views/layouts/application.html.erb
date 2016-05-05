@@ -8,24 +8,29 @@
 </head>
 <body>
   <div class="container">
-    <nav class='navbar navbar-default navbar-fixed-top'>
-      <div class="container-fluid">
+    <div class="container-fluid">
+      <nav class='navbar navbar-default navbar-fixed-top'>
         <a class='navbar-brand'>Assembly Point</a>
           <div class='nav navbar-nav navbar row pull-right'>
-            <% if user_signed_in? %>
-              <div class= "col-s-3"> <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link" %> </div>
-            <% else %>
-              <div class= "col-s-3"> <%= link_to "Sign In", user_session_path, class: "nav-link" %> </div>
-              <div class= "col-s-3"> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %> </div>
-              <div class= "col-s-3"> <%= link_to "Dashboard", politicians_path, class: "nav-link" %> </div>
-            <% end %>
-        </div>
-      </div>
-    </nav>
-  </div>
+            <div class="row">
+              <% if user_signed_in? %>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %> </div>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Local", "/", class: "nav-link" %> </div>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "State", "/", method: :delete, class: "nav-link" %> </div>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "National", "/", method: :delete, class: "nav-link" %> </div>
+
+              <% else %>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Sign In", user_session_path, class: "nav-link" %> </div>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %> </div>
+                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Dashboard", politicians_path, class: "nav-link" %> </div>
+              <% end %>
+            </div>
+          </div>
+      </nav>
+    </div>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <%= yield %>
-
+  </div>
 </body>
 </html>
