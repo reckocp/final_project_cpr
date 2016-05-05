@@ -8,26 +8,29 @@
 </head>
 <body>
   <div class="container">
-    <div class="container-fluid">
-      <nav class='navbar navbar-default navbar-fixed-top'>
-        <a class='navbar-brand'>Assembly Point</a>
-          <div class='nav navbar-nav navbar row pull-right'>
-            <div class="row">
-              <% if user_signed_in? %>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %> </div>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Local", politicians_local_path, method: :get, class: "nav-link" %> </div>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "State", politicians_state_path, method: :get, class: "nav-link" %> </div>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "National", politicians_national_path, method: :get, class: "nav-link" %> </div>
-
-              <% else %>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Sign In", user_session_path, class: "nav-link" %> </div>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %> </div>
-                <div class= "col-sm-6 col-sm-6 col-md-3"> <%= link_to "Dashboard", politicians_path, class: "nav-link" %> </div>
-              <% end %>
-            </div>
+      <nav class='navbar navbar-default'>
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class='navbar-brand'>Assembly Point</a>
           </div>
+          <div class='navbar-collapse collapse'>
+            <% if user_signed_in? %>
+              <ul class="nav navbar-nav navbar-right">
+                <li> <%= link_to "Home", politicians_path, class: "nav-link" %> </li>
+                <li> <%= link_to "Local", politicians_local_path, method: :get, class: "nav-link" %> </li>
+                <li> <%= link_to "State", politicians_state_path, method: :get, class: "nav-link" %> </li>
+                <li> <%= link_to "National", politicians_national_path, method: :get, class: "nav-link" %> </li>
+                <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %> </li>
+              </ul>
+            <% else %>
+              <ul class="nav navbar-nav navbar-right">
+                <li> <%= link_to "Sign In", user_session_path, class: "nav-link" %> </li>
+                <li> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %> </li>
+              </ul>
+            <% end %>
+          </div>
+        </div>
       </nav>
-    </div>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <%= yield %>

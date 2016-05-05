@@ -16,40 +16,32 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  body {
-   margin-top: 8em;
+   padding-top: 20px;
+   padding-bottom: 20px;
  }
  nav.navbar-default {
-   .navbar-brand {
-     font-family: Lato;
-     color: white;
-     font-size: 2em;
-     &:hover {
-       text-decoration: none;
-       color: white;
-     }
-   }
-   .row {
-     min-width: 12em;
-   }
+   margin-bottom: 20px;
+  div > div ul li:hover {
+     text-decoration: underline;
+  }
  }
- .navbar {
-   background-color: #00FA9A;
-   border-bottom: 2px solid yellow;
-   padding: 2px 0 2px 0;
-   div {
-     border: none;
-           margin-top: 1.3em;
-     a.nav-link {
-       font-size: 1.125em;
-       font-family: Lato;
-       color: white;
-       &:hover {
-         text-decoration: none;
-         color: white;
-       }
-     }
-   }
- }
+ // .navbar {
+ //   background-color: #00FA9A;
+ //   border-bottom: 2px solid yellow;
+ //   div {
+ //     border: none;
+ //           margin-top: 1.3em;
+ //     a.nav-link {
+ //       font-size: 1.125em;
+ //       font-family: Lato;
+ //       color: white;
+ //       &:hover {
+ //         text-decoration: none;
+ //         color: white;
+ //       }
+ //     }
+ //   }
+ // }
 .dashboard-panels {
   text-align: center;
 }

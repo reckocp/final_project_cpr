@@ -1,8 +1,9 @@
 class PoliticiansController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:home]
   def index
     @politicians = collectPoliticians
     @user = current_user
+    @posts = Post.all
   end
 
   def show

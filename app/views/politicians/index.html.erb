@@ -11,12 +11,10 @@
       <div class="panel panel-default">
         <div class="panel-header">Article Feed</div>
         <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
-            <p><a href="http://www.chicagotribune.com/news/opinion/zorn/ct-missing-obama-already-perspec-zorn-0504-jm-20160503-column.html">Why You Will Miss Obama</a></p>
-            <p><a href="http://abcnews.go.com/Politics/joe-biden-jokes-expects-trumps-vp-pick/story?id=38873659">Biden Jokes About Being Trump's VP Pick</a></p>
-            <p><a href="http://www.click2houston.com/news/mitsubishi-moves-us-headquarters-to-houston">Greg Abbott Attends Mitsubishi Moving Ceremony in Houston</a></p>
-            <p><a href="https://www.houstonpublicmedia.org/articles/news/2016/04/26/148035/ted-cruz-went-to-washington-to-run-for-president-john-cornyn-says/">John Cornyn Says Cruz Went to Washington To Run For President</a></p>
-            <p><a href="http://www.cnn.com/2016/05/03/politics/ted-cruz-drops-out/">Ted Cruz Drops Presidential Big</a></p>
-            <p><a href="http://www.statesman.com/news/news/austin-mayor-steve-adler-comes-out-against-prop-1/nrBbJ/">Steve Adler Comes Out Against Prop 1</a></p>
+          <% @posts.each do |post| %>
+            <p><a href="<%= post.body %>"><%= post.title %></a></p>
+            <%= link_to "View Post", post_path(post.id), method: :get %>
+          <% end %>
         </div>
       </div>
     </div>
