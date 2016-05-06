@@ -46,12 +46,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def downcase_fields
+    self.level.downcase!
+  end
+
   private
+
   def get_post
     @post = Post.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id, :location_id)
+    params.require(:post).permit(:title, :body, :user_id, :location_id, :level)
   end
 end
