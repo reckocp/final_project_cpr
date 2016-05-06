@@ -10,12 +10,15 @@ class PoliticiansController < ApplicationController
   end
 
   def local
+    @user = current_user
   end
 
   def state
+    @user = current_user
   end
 
   def national
+    @user = current_user
   end
 
   def collectPoliticians

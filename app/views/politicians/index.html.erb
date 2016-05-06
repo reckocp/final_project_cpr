@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<h3>WELCOME TO <strong>YOUR</strong> ASSEMBLY POINT <%= @user.username %></h3>
+<h3>Welcome to <strong>YOUR</strong> Assembly Point <strong><%= @user.username %></strong></h3>
 <%= link_to "Profile", user_path(@user), method: :get %>
 <% else %>
 <h3> Welcome to <strong>YOUR</strong> ASSEMBLY POINT.</h3>
