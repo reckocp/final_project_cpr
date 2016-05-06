@@ -1,0 +1,7 @@
+console.log("create.js.erb file");
+
+# add new comment to end of comments section
+$("#comments").append("<%= @comment.user.username %>: <%= @comment.title %> <%= @comment.body %>");
+
+# remove current DOM element stating there are no comments yet (if no comments yet exist)
+$("#comments").html("");

@@ -1,5 +1,5 @@
 class PoliticiansController < ApplicationController
-  before_filter :authenticate_user!, except: [:home]
+  before_filter :authenticate_user!, except: [:home, :index]
   def index
     @politicians = collectPoliticians
     @user = current_user
@@ -11,14 +11,17 @@ class PoliticiansController < ApplicationController
 
   def local
     @user = current_user
+    @posts = Post.where(:level => "local")
   end
 
   def state
     @user = current_user
+    @posts = Post.where(:level => "state")
   end
 
   def national
     @user = current_user
+    @posts = Post.where(:level => "national")
   end
 
   def collectPoliticians

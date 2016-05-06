@@ -1,1 +1,51 @@
 <h4>Keep up with your state politicians, <%= @user.username %>!</h4>
+<div class="container">
+  <div class="row">
+    <div class="dashboard-panels col-md-8 col-md-offset-0">
+      <div class="panel panel-default">
+        <div class="panel-header">Article Feed</div>
+        <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
+          <ol>
+            <% @posts.each do |post| %>
+                <li><p><a href="<%= post.body %>"><%= post.title %></a></p>
+                <p><%= link_to "View Post", post_path(post.id), method: :get %></p></li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-panels col-md-4 col-md-offset-0">
+      <div class="panel panel-default">
+        <div class="panel-header">Your Elected Officials</div>
+        <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
+            <p>Barack Obama</p>
+            <p>President of the United States</p>
+            <p>Joe Biden</p>
+            <p>Vice President of the United States</p>
+            <p>Greg Abbott</p>
+            <p>Governor of Texas</p>
+            <p>John Cornyn</p>
+            <p>United States Senator</p>
+            <p>Ted Cruz</p>
+            <p>United States Senator</p>
+            <p>Steve Adler</p>
+            <p>Mayor of Austin, TX</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="dashboard-panels">
+      <div class="panel panel-default">
+        <div class="panel-header">Trending Topics</div>
+        <div class="panel-body">
+          <p>Texas</p>
+          <p>Presidential Election</p>
+          <p>Prop 1</p>
+          <p>Mitsubishi</p>
+          <p>Obama</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

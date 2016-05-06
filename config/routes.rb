@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   root :to => 'dashboard#home'
 
 
-  resources :posts
-  resources :comments
+  resources :posts do
+    resources :comments
+  end
   # get '/politicians/local' => '/politicians#local'
   # get '/politicians/state' => '/politicians#state'
   # get '/politicians/national' => '/politicians#national'

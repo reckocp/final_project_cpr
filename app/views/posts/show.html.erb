@@ -1,8 +1,14 @@
-<h1><%= @post.title %></h1>
-<h3><%= @post.body %></h3>
+<h3><a href="<%= @post.body %>"><%= @post.title %></a></h3>
 
+<h5>Comments</h5>
+<ul>
 <% @post.comments.each do |comment| %>
-<p> <%= comment.title %> </p>
+<li><p><strong><%= comment.title %></strong></p>
 <p> <%= comment.body %> </p>
-<p> <%= comment.user.username %> </p>
+<p> By: <%= comment.user.username %> </p>
+<p><%= link_to "Profile", user_path(comment.user.id), method: :get %></p></li>
+<% end %>
+
+<% if user_signed_in? %>
+<%= render 'comments/new', review: Comment.new(post_id: @post.id) %>
 <% end %>
