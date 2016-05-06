@@ -1,9 +1,7 @@
-<%= form_for [@post, Comment.new], :remote => true do |f| %>
+<%= form_for [@post, Comment.new] do |f| %>
   <div class="field">
     <%= f.hidden_field :post_id, :value => @post.id %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
     <%= f.label :body %>
     <%= f.text_field :body %>
   </div>

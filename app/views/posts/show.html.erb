@@ -3,8 +3,7 @@
 <h5>Comments</h5>
 <ul>
 <% @post.comments.each do |comment| %>
-<li><p><strong><%= comment.title %></strong></p>
-<p> <%= comment.body %> </p>
+<li><p> <%= comment.body %> </p>
 <p> By: <%= comment.user.username %> </p>
 <p><%= link_to "Profile", user_path(comment.user.id), method: :get %></p></li>
 <% end %>
