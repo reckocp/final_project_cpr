@@ -2,3 +2,7 @@
 <h3><%= @user.email %></h3>
 <h3><%= @user.party %></h3>
 <h3><%= @user.address %></h3>
+
+<% @user.comments.each do |comment| %>
+ <p><%= comment.body %></p>
+<% end %>

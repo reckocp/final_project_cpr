@@ -13,4 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require react
+//= require react_ujs
+//= require components
+//= require bootstrap/alert
+//= require bootstrap/button
+//= require bootstrap/dropdown
+//= require bootstrap/modal
+//= require bootstrap/transition
 //= require_tree .

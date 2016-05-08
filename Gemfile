@@ -59,6 +59,7 @@ gem 'google-api-client'
 gem 'dotenv-rails'
 gem 'devise'
 
+gem 'react-rails', '~> 1.7.0'
 
 
 group :production do

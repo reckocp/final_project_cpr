@@ -26,7 +26,7 @@
         <div class="panel-header">Your Elected Officials</div>
         <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
           <% @offices.each do |k, v| %>
-            <p><%= k["name"] %></p>
+            <p><strong><%= k["name"] %></strong></p>
             <% k["officials"].each do |key, val| %>
               <p><%= key["name"] %>
             <% end %>
