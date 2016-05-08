@@ -1,6 +1,5 @@
 <% if user_signed_in? %>
 <h3>Welcome to <strong>YOUR</strong> Assembly Point <strong><%= @user.username %></strong></h3>
-<%= link_to "Profile", user_path(@user), method: :get %>
 <% else %>
 <h3> Welcome to <strong>YOUR</strong> ASSEMBLY POINT.</h3>
 <h5>Sign up today for the full experience!</h5>
@@ -15,6 +14,7 @@
           <ol>
             <% @posts.each do |post| %>
                 <li><p><a href="<%= post.body %>"><%= post.title %></a></p>
+                <p>by: <%= post.user.username %></p>
                 <p><%= link_to "View Post", post_path(post.id), method: :get %></p></li>
             <% end %>
           </ol>
@@ -45,6 +45,16 @@
           <p>What is Prop 1?</p>
           <p>The ordinance the ballot is asking you about is the potential new ordinance, the one backed by Uber and Lyft. So a vote “for the ordinance” is for the Uber and Lyft ordinance. A vote “against the ordinance” would be you saying, “I don’t want the Uber and Lyft ordinance. I want the existing city ordinance to remain in effect.”</p>
           <a href="https://tax-office.traviscountytx.gov/voters/voter-registration">Click here to register to vote!</a>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-panels">
+      <div class="panel panel-default">
+        <div class="panel-header">Upcoming Events</div>
+        <div class="panel-body">
+          <%= month_calendar do |date| %>
+            <%= date %>
+          <% end %>
         </div>
       </div>
     </div>

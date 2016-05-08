@@ -1,0 +1,14 @@
+<%= form_for @post do |f| %>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label :link %>
+    <p><%= f.url_field :body %></p>
+    <%= f.label :description %>
+    <p><%= f.text_field :title %></p>
+    <%= f.label :level_of_government %>
+    <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']] %></p>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

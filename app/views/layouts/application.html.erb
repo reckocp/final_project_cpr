@@ -24,7 +24,7 @@
                 <li class="nav-dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><p><%= link_to "Profile", user_path(@user), method: :get %></p></li>
+                    <li><p><%= link_to "Profile", user_path(current_user), method: :get %></p></li>
                     <li><p><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></p></li>
                   </ul>
                 </li>

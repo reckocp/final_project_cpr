@@ -4,25 +4,6 @@ class PoliticiansController < ApplicationController
     @user = current_user
     @posts = Post.all.order(created_at: :desc)
     @politicians = collectPoliticians
-    rep = @politicians
-    officials = rep[1]
-    offices = {}
-    offices[:nationalOffices] = []
-    offices[:stateOffices] = []
-    offices[:localOffices] = []
-    rep[0].each do |k, v|
-      if k['levels'] == 'country'
-        offices[:nationalOffices] << k
-      elsif k['levels'] == 'administrativeArea1'
-        offices[:stateOffices] << k
-      else
-        offices[:localOffices] << k
-      end
-    end
-    @nationalOffices = offices[:nationalOffices]
-    @stateOffices = offices[:stateOffices]
-    @localOffices = offices[:localOffices]
-    return [@nationalOffices, @stateOffices, @localOffices]
   end
 
   def show
@@ -31,16 +12,21 @@ class PoliticiansController < ApplicationController
   def local
     @user = current_user
     @posts = Post.where(:level => "local").order(created_at: :desc)
+    @politicians = collectPoliticians
+
   end
 
   def state
     @user = current_user
     @posts = Post.where(:level => "state").order(created_at: :desc)
+    @politicians = collectPoliticians
+
   end
 
   def national
     @user = current_user
     @posts = Post.where(:level => "national")
+    @politicians = collectPoliticians
   end
 
   def collectPoliticians

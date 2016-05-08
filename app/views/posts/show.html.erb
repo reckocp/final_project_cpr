@@ -1,7 +1,27 @@
 <h3><a href="<%= @post.body %>"><%= @post.title %></a></h3>
 <h5>Posted by: <%= @post.user.username %></h5>
+<h5><%= link_to "Profile", user_path(@post.user.id), method: :get %></h5>
+<% if current_user == @post.user %>
+  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+    Edit Post
+  </button>
 
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Comment</h4>
+        </div>
+        <div class="modal-body">
+          <%= render 'posts/edit', review: @post.update(user_id: current_user.id) %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
+<hr />
 <h5>Comments</h5>
 <ul>
 <% @post.comments.each do |comment| %>
@@ -10,6 +30,23 @@
 <p><%= link_to "Profile", user_path(comment.user.id), method: :get %></p></li>
 <% end %>
 
+
 <% if user_signed_in? %>
-<%= render 'comments/new', review: Comment.new(post_id: @post.id) %>
+  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+    Leave a comment
+  </button>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Comment</h4>
+        </div>
+        <div class="modal-body">
+          <%= render 'comments/new', review: Comment.new(post_id: @post.id) %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

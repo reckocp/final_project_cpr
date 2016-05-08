@@ -60,6 +60,8 @@ gem 'dotenv-rails'
 gem 'devise'
 
 gem 'react-rails', '~> 1.7.0'
+gem "simple_calendar", "~> 2.0"
+
 
 
 group :production do
