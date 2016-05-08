@@ -25,18 +25,12 @@
       <div class="panel panel-default">
         <div class="panel-header">Your Elected Officials</div>
         <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
-            <p>Barack Obama</p>
-            <p>President of the United States</p>
-            <p>Joe Biden</p>
-            <p>Vice President of the United States</p>
-            <p>Greg Abbott</p>
-            <p>Governor of Texas</p>
-            <p>John Cornyn</p>
-            <p>United States Senator</p>
-            <p>Ted Cruz</p>
-            <p>United States Senator</p>
-            <p>Steve Adler</p>
-            <p>Mayor of Austin, TX</p>
+          <% @offices.each do |k, v| %>
+            <p><%= k["name"] %></p>
+            <% k["officials"].each do |key, val| %>
+              <p><%= key["name"] %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -56,7 +50,3 @@
     </div>
   </div>
 </div>
-
-<% @offices.each do |office| %>
-  <p><%= office %></p>
-<% end %>
