@@ -1,9 +1,28 @@
 class PoliticiansController < ApplicationController
   before_filter :authenticate_user!, except: [:home, :index]
   def index
-    @politicians = collectPoliticians
     @user = current_user
     @posts = Post.all.order(created_at: :desc)
+    @politicians = collectPoliticians
+    rep = @politicians
+    officials = rep[1]
+    offices = {}
+    offices[:nationalOffices] = []
+    offices[:stateOffices] = []
+    offices[:localOffices] = []
+    rep[0].each do |k, v|
+      if k['levels'] == 'country'
+        offices[:nationalOffices] << k
+      elsif k['levels'] == 'administrativeArea1'
+        offices[:stateOffices] << k
+      else
+        offices[:localOffices] << k
+      end
+    end
+    @nationalOffices = offices[:nationalOffices]
+    @stateOffices = offices[:stateOffices]
+    @localOffices = offices[:localOffices]
+    return [@nationalOffices, @stateOffices, @localOffices]
   end
 
   def show
@@ -35,10 +54,16 @@ class PoliticiansController < ApplicationController
     parsed_data = JSON.parse(response.body)
     @offices = parsed_data['offices']
     @officials = parsed_data['officials']
-
+    @offices.each do |eli1|
+      eli1["officials"] = eli1["officialIndices"].map { |idx|
+        @officials[idx]
+      }
+      eli1.delete("officialIndices")
+    end
     return [@offices, @officials]
   end
 
-
+  def filterPoliticians
+  end
 
 end
