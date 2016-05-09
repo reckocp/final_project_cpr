@@ -1,9 +1,9 @@
-<p>Messages</p>
+<h3>Messages</h3>
+<hr />
 <% @messages.each do |message| %>
   <p><%= message.body %> from <%= message.user.username %></p>
 <% end %>
-
-
+<hr />
 <%= form_for [@conversation, Message.new] do |f| %>
  <div class="field">
    <%= f.text_area :body %>

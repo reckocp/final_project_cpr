@@ -4,6 +4,7 @@ class PoliticiansController < ApplicationController
     @user = current_user
     @posts = Post.all.order(created_at: :desc)
     @politicians = collectPoliticians
+    @events = Event.all
   end
 
   def show

@@ -1,10 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+t = Time.now
+x = Time.now + 5.hours
 
 User.create!(username: 'Colin', email: 'test@example.com', password: 'password', address: '1801 Rio Grande St, Api 202, Austin, TX 78701', party: 'Democratic Party')
 User.create!(username: 'Justin', email: 'test1@example.com', password: 'password', address: '3601 S Congress Ave C304, Austin, TX 78704', party: 'Democratic Party')
@@ -22,3 +17,10 @@ Post.create!(title: 'Mitsubishi moves U.S. headquarters to Houston', body: 'http
 Post.create!(title: 'Ted Cruz Went To Washington To Run For President, John Cornyn Says', body: 'https://www.houstonpublicmedia.org/articles/news/2016/04/26/148035/ted-cruz-went-to-washington-to-run-for-president-john-cornyn-says/', user_id: 4, level: "state")
 Post.create!(title: 'Ted Cruz drops presidential bid', body: 'http://www.cnn.com/2016/05/03/politics/ted-cruz-drops-out/', user_id: 5, level: "state")
 Post.create!(title: 'Austin Mayor Steve Adler comes out against Prop. 1', body: 'http://www.statesman.com/news/news/austin-mayor-steve-adler-comes-out-against-prop-1/nrBbJ/', user_id: 6, level: "local")
+
+
+Event.create!(title: 'Voter Registration', description: 'This is your last change to register to vote. Do not forget!', location: 'City Hall, Austin, TX', date: DateTime.strptime('06/04/2016', '%m/%d/%Y'), start_time: t.strftime("%I:%M%p"), end_time: x.strftime("%I:%M%p"))
+Event.create!(title: 'Hillay Clinton Rally', description: 'Mrs. Clinton will be visiting our city for a special event to bring awareness to her campaign.', location: 'University of Texas Football Stadium', date: DateTime.strptime('06/07/2016', '%m/%d/%Y'), start_time: t.strftime("%I:%M%p"), end_time: x.strftime("%I:%M%p"))
+Event.create!(title: 'Anti-Trump Protest', description: 'A group of University of Texas-Austin students will be leading a march dowh Congress Street to the Capitol in protest of Donald Trump and his campaign platform.', location: 'Congress Bridge', date: DateTime.strptime('06/18/2016', '%m/%d/%Y'), start_time: t.strftime("%I:%M%p"), end_time: x.strftime("%I:%M%p"))
+Event.create!(title: 'Elizabeth Warren: A Session on Wall Street Banking', description: 'The famed senator from Massachusetts will be visiting to give a lecture on the dangers of allowing Wall St. to operate unregulated.', location: 'Bullock State Museum', date: DateTime.strptime('06/23/2016', '%m/%d/%Y'), start_time: t.strftime("%I:%M%p"), end_time: x.strftime("%I:%M%p"))
+Event.create!(title: 'Republican Party Bake Sale', description: 'Visit to help raise funds for your local Republican Party!', location: 'your local gutter', date: DateTime.strptime('06/30/2016', '%m/%d/%Y'), start_time: '', end_time: x.strftime("%I:%M%p"))

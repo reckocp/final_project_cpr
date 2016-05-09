@@ -53,8 +53,13 @@
       <div class="panel panel-default">
         <div class="panel-header">Upcoming Events</div>
         <div class="panel-body">
-          <%= month_calendar do |date| %>
-            <%= date %>
+          <% if @events.empty? %>
+            <p>You have no upcoming events</p>
+          <% end %>
+          <% @events.each do |event| %>
+            <p><strong><%= event.date %></strong></p>
+            <p><%= event.title %></p>
+            <p><%= link_to "View Event", event_path(event.id), method: :get %></p></li>
           <% end %>
         </div>
       </div>

@@ -21,8 +21,6 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  # get '/politicians/local' => '/politicians#local'
-  # get '/politicians/state' => '/politicians#state'
-  # get '/politicians/national' => '/politicians#national'
+  resources :events 
 
 end
