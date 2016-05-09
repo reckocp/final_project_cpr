@@ -1,27 +1,15 @@
-<div class=”ui segment”>
- <% @messages.each do |message| %>
-  <% if message.body %>
-   <% user = User.find(message.user_id) %>
-   <div class=”item”>
-    <div class=”content”>
-     <div class=”header”><strong><%= user.first_name %></strong>     <%= message.message_time %></div>
-      <div class=”list”>
-       <div class=”item”>
-        <i class=”right triangle icon”></i>
-         <%= message.body %>
-      </div>
-    </div>
-   </div>
- </div>
- <% end %>
+<p>Messages</p>
+<% @messages.each do |message| %>
+  <p><%= message.body %> from <%= message.user.username %></p>
 <% end %>
-</div>
-<%= form_for [@conversation, @message], html: {class: “ui reply form”} do |f| %>
- <div class=”field”>
-   <%= f.text_area :body, class: “form-control” %>
+
+
+<%= form_for [@conversation, Message.new] do |f| %>
+ <div class="field">
+   <%= f.text_area :body %>
+   <%= f.hidden_field :user_id, :value => current_user.id %>
  </div>
- <%= f.text_field :user_id, value: current_user.id, type: “hidden” %>
- <div>
-   <%= f.submit “Add Reply”, class: “ui blue labeled submit icon button” %>
+ <div class="actions">
+   <%= f.submit "Send" %>
  </div>
 <% end %>

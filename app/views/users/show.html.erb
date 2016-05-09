@@ -6,3 +6,5 @@
 <% @user.comments.each do |comment| %>
  <p><%= comment.body %></p>
 <% end %>
+<%= link_to  "Send a Message", new_conversation_path, class:'btn btn-default' %>
+<%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post'%>
