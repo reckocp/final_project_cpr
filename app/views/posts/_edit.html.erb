@@ -5,6 +5,8 @@
     <p><%= f.url_field :body %></p>
     <%= f.label :description %>
     <p><%= f.text_field :title %></p>
+    <%= f.label :summary %>
+    <p><%= f.text_field :summary %></p>
     <%= f.label :level_of_government %>
     <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']] %></p>
   </div>

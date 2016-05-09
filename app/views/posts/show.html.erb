@@ -1,4 +1,7 @@
 <h3><a href="<%= @post.body %>"><%= @post.title %></a></h3>
+<div class="panel panel-default">
+  <div class="panel-body"><%= @post.summary %></div>
+</div>
 <h5>Posted by: <%= @post.user.username %></h5>
 <h5><%= link_to "Profile", user_path(@post.user.id), method: :get %></h5>
 <% if current_user == @post.user %>

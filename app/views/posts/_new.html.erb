@@ -1,19 +1,13 @@
-<!-- <div class="new_post_page">
-    <h1> Create a new post!</h1>
-  <form action="/posts" method="POST">
-      <p>Link <input type="text" name="title" id="title"/></p>
-      <p>Description<input type="text" name="body" id="body"/></p>
-      <p>
-      <p><input type="submit" name="commit" id="submit"/></p>
-  </form>
-</div> -->
+
 <%= form_for [Post.new] do |f| %>
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.label :link %>
     <p><%= f.url_field :body, :value => "http://" %></p>
-    <%= f.label :description %>
+    <%= f.label :link_title %>
     <p><%= f.text_field :title %></p>
+    <%= f.label :summary %>
+    <p><%= f.text_field :summary %></p>
     <%= f.label :level_of_government %>
     <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']] %></p>
   </div>
