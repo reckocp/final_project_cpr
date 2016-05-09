@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+  resources :conversations do
+    resources :messages
+  end
   # get '/politicians/local' => '/politicians#local'
   # get '/politicians/state' => '/politicians#state'
   # get '/politicians/national' => '/politicians#national'
