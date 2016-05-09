@@ -31,14 +31,14 @@
               </ul>
             <% else %>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#myModal" data-toggle="modal" data-target="#myModal", class: "nav-link">Sign In</a></li>
+                <li><a href="#mySignInModal" data-toggle="modal" data-target="#mySignInModal", class: "nav-link">Sign In</a></li>
                 <li> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %> </li>
               </ul>
             <% end %>
           </div>
         </div>
       </nav>
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal fade" id="mySignInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
