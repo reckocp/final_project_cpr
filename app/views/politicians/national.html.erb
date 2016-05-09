@@ -27,7 +27,7 @@
         <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
           <ol>
             <% @posts.each do |post| %>
-                <li><p><a href="<%= post.body %>"><%= post.title %></a></p>
+                <li><h4><a href="<%= post.body %>"><%= post.title %></a></h4>
                 <p>by: <%= post.user.username %></p>
                 <p><%= link_to "View Post", post_path(post.id), method: :get %></p></li>
             <% end %>
@@ -39,7 +39,7 @@
       <div class="panel panel-default">
         <div class="panel-header">Your Elected Officials</div>
         <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
-          <% @offices.each do |k, v| %>
+          <% @nationalOffices.each do |k, v| %>
             <p><strong><%= k["name"] %></strong></p>
             <% k["officials"].each do |key, val| %>
               <p><%= key["name"] %>

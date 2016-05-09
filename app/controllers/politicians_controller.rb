@@ -13,20 +13,43 @@ class PoliticiansController < ApplicationController
     @user = current_user
     @posts = Post.where(:level => "local").order(created_at: :desc)
     @politicians = collectPoliticians
-
+    @localOffices = []
+    @offices.each do |office|
+      if office.has_key? "levels"
+      else
+        @localOffices << office
+      end
+    end
   end
 
   def state
     @user = current_user
     @posts = Post.where(:level => "state").order(created_at: :desc)
     @politicians = collectPoliticians
-
+    @stateOffices = []
+    @offices.each do |k, v|
+      k.fetch("levels", []).each do |level|
+        puts level
+        if level == "administrativeArea1"
+          @stateOffices << k
+        end
+      end
+    end
   end
 
   def national
     @user = current_user
     @posts = Post.where(:level => "national")
     @politicians = collectPoliticians
+    @nationalOffices = []
+    @offices.each do |k, v|
+      k.fetch("levels", []).each do |level|
+        puts level
+        if level == "country"
+          @nationalOffices << k
+        end
+      end
+    end
   end
 
   def collectPoliticians
@@ -48,8 +71,4 @@ class PoliticiansController < ApplicationController
     end
     return [@offices, @officials]
   end
-
-  def filterPoliticians
-  end
-
 end
