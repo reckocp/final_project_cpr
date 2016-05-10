@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  resources :users, :only => [:show]
+  resources :users, :only => [:index, :show]
 
   get 'politicians/local' => 'politicians#local'
   get 'politicians/state' => 'politicians#state'
@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  resources :events 
+  resources :events
 
 end
