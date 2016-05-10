@@ -5,11 +5,11 @@
 <h5>Posted by: <%= @post.user.username %></h5>
 <h5><%= link_to "Profile", user_path(@post.user.id), method: :get %></h5>
 <% if current_user == @post.user %>
-  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myEditModal">
     Edit Post
   </button>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -27,22 +27,8 @@
 <hr />
 <h5>Comments</h5>
 <% if user_signed_in? %>
-  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
-    Leave a comment
-  </button>
+<%= react_component('CommentForm', userID: current_user.id, postID: @post.id) %>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">New Comment</h4>
-        </div>
-        <div class="modal-body">
-          <%= react_component('CommentForm', userID: current_user.id, postID: @post.id) %>
-        </div>
-      </div>
-    </div>
-  </div>
+
 <% end %>
 <%= react_component('Comments', comments: @post.comments, postID: @post.id) %>

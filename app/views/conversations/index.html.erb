@@ -13,10 +13,11 @@
         <% else %>
           <% recipient = User.find(conversation.sender_id) %>
         <% end %>
-        <p>Your conversation with: <%= link_to recipient.username,   conversation_messages_path(conversation)%></p>
+        <h4><%= link_to recipient.username, conversation_messages_path(conversation)%></h4>
       <% end %>
     <% end %>
   </div>
  </div>
 </div>
+<hr />
 <%= react_component('UserSearch', users: @users) %>

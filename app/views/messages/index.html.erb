@@ -1,7 +1,7 @@
 <h3>Messages</h3>
 <hr />
 <% @messages.each do |message| %>
-  <p><%= message.body %> from <%= message.user.username %></p>
+  <p><%= message.user.username %>: <%= message.body %></p>
 <% end %>
 <hr />
 <%= form_for [@conversation, Message.new] do |f| %>

@@ -36,7 +36,7 @@ var CommentForm = React.createClass({
   render: function(){
     return (
       <div>
-        <label><strong>New Comment: </strong>
+        <label><p>New Comment:</p>
           <textarea row={40} cols={40}
                  className="form-control-100"
                  placeholder="Type here.."
