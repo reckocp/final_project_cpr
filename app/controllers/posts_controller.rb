@@ -4,8 +4,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = get_post
-    @comments = @post.comments
+    respond_to do |format|
+      @post = get_post
+      @comments = @post.comments
+      format.html
+      format.json { render json: @comments}
+    end
   end
 
   def new

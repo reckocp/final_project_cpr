@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    respond_to do |format|
+      @comments = Comment.all
+      format.html
+      format.json { render json: @comments.to_json(include: :user)}
+    end
   end
 
   def show

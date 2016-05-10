@@ -33,6 +33,8 @@
 <p><%= link_to "Profile", user_path(comment.user.id), method: :get %></p></li>
 <% end %>
 
+<%= react_component('Comments', comments: @post.comments, postID: @post.id) %>
+
 
 <% if user_signed_in? %>
   <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
