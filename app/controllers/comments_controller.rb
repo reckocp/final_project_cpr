@@ -1,10 +1,5 @@
 class CommentsController < ApplicationController
   def index
-    respond_to do |format|
-      @comments = Comment.all
-      format.html
-      format.json { render json: @comments.to_json(include: :user)}
-    end
   end
 
   def show
@@ -16,12 +11,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @post =  Post.find(params[:post_id])
+    @comment = @post.comments.create!(comment_params)
     respond_to do |format|
       if @comment.save
         format.html { redirect_to :back, notice: 'Comment was successfully created.' }
         format.js   { }
-        format.json { render :show, status: :created, location: @comment }
+        format.json { render json: @comment.to_json(include: :user) }
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity}

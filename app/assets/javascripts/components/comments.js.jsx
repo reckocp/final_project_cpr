@@ -1,39 +1,47 @@
 var Comments = React.createClass({
   getInitialState: function() {
     return {
-      comments: []
+      postComments: [],
+      _mounted: true
     };
   },
-  tick: function() {
-    var that = this;
+  fetchComments: function() {
     $.ajax({
-      url: '/posts/' + this.props.postID + '/comments.json',
+      url: '/posts/' + this.props.postID,
       dataType: 'JSON',
       method: 'get'
     }).done(function (response) {
-      this.setState({
-        comments: response,
-      });
+      if (this.state['_mounted'] === true) {
+        this.setState({
+          postComments: response,
+        });
+      }
     }.bind(this));
   },
   componentDidMount: function() {
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.fetchComments, 2000);
   },
   componentWillUnmount: function() {
-    clearInterval(this.interval);
+    if (this.interval) {
+      clearInterval(this.interval);
+      this.interval = null;
+    }
+    this.setState({
+      postComments: [],
+      _mounted: false
+    });
   },
   render: function() {
     return (
       <div>
-      {this.state.comments.map(function(comment){
-        {console.log(comment.body)}
-          return (
-            <Comments
-              key={comment.id}
-              username={comment.user.username}
-              body={comment.body}
-              />
-          );
+      {this.state.postComments.map(function(comment){
+        return (
+          <ul key={comment.id}>
+            <li><p>{comment.body}</p>
+            <p>by: {comment.user.username}</p>
+            <p><a href={'/users/' + comment.user.id}>Profile</a></p></li>
+          </ul>
+        );
       })}
       </div>
     );

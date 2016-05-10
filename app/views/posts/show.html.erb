@@ -26,16 +26,6 @@
 
 <hr />
 <h5>Comments</h5>
-<ul>
-<% @post.comments.each do |comment| %>
-<li><p> <%= comment.body %> </p>
-<p> By: <%= comment.user.username %> </p>
-<p><%= link_to "Profile", user_path(comment.user.id), method: :get %></p></li>
-<% end %>
-
-<%= react_component('Comments', comments: @post.comments, postID: @post.id) %>
-
-
 <% if user_signed_in? %>
   <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
     Leave a comment
@@ -49,9 +39,10 @@
           <h4 class="modal-title" id="myModalLabel">New Comment</h4>
         </div>
         <div class="modal-body">
-          <%= render 'comments/new', review: Comment.new(post_id: @post.id) %>
+          <%= react_component('CommentForm', userID: current_user.id, postID: @post.id) %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
+<%= react_component('Comments', comments: @post.comments, postID: @post.id) %>
