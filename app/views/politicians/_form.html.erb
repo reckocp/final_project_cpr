@@ -1,0 +1,35 @@
+<div class="modal fade" id="<%= "myPoliticianModal#{index}" %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Politician View</h4>
+      </div>
+      <div class="modal-body">
+        <% if office['name'].present? %>
+          <p><%= office["name"] %></p>
+        <% end %>
+        <% office.fetch('officials', []).each do |official| %>
+          <p><%= official['name'] %></p>
+          <img src="<%= official['photoUrl']%>"/>
+          <% official['address'].each do |el1, el2| %>
+            <p><%= el1['line1'] %></p>
+            <p><%= el1['line2'] %></p>
+            <p><%= el1['city'] %></p>
+            <p><%= el1['state'] %></p>
+            <p><%= el1['zip'] %></p>
+          <% end %>
+          <p><%= official['party'] %> Party</p>
+          <p><%= official.fetch('phones', [])[0] %></p>
+          <% official.fetch('urls', []).each do |url| %>
+            <a href="<%=url%>">Official Website</a>
+          <% end %>
+          <% official.fetch('channels', []).each do |channel| %>
+            <p><%= channel['type'] %></p>
+            <p><%= channel['id'] %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

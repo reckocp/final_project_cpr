@@ -30,35 +30,11 @@
      text-decoration: underline;
   }
  }
- .map-div {
-   margin-left: auto;
-   margin-right: auto;
-   text-align: center;
+
+ .bulk {
+   font-family: 'Raleway', sans-serif;
  }
- // .navbar {
- //   background-color: #00FA9A;
- //   border-bottom: 2px solid yellow;
- //   div {
- //     border: none;
- //           margin-top: 1.3em;
- //     a.nav-link {
- //       font-size: 1.125em;
- //       font-family: Lato;
- //       color: white;
- //       &:hover {
- //         text-decoration: none;
- //         color: white;
- //       }
- //     }
- //   }
- // }
-.dashboard-panels {
-  text-align: center;
-}
-.panel-header {
-  font-weight: bold;
-	border-bottom: 0.1em solid black;
-}
+
 .initial-page{
   text-align: center;
 }

@@ -7,77 +7,49 @@
 <% end %>
 <hr />
 <div class="container">
-  <div class="row">
-    <div class="dashboard-panels col-md-8 col-md-offset-0">
-      <div class="panel panel-default">
-        <div class="panel-header">Article Feed</div>
-        <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
-          <ol>
-            <% @posts.each do |post| %>
-                <li><h4><a href="<%= post.body %>"><%= post.title %></a></h4>
-                <p>by: <%= link_to post.user.username, user_path(post.user.id), method: :get %></p></li>
-                <p><%= link_to "View Post", post_path(post.id), method: :get %></p></li>
-            <% end %>
-          </ol>
-        </div>
-      </div>
-    </div>
-    <div class="dashboard-panels col-md-4 col-md-offset-0">
-      <div class="panel panel-default">
-        <div class="panel-header">Your Elected Officials</div>
-        <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
-          <% @offices.each_with_index do |k, index| %>
-            <p><%= index %></p>
-            <p><strong><%= k["name"] %></strong></p>
-            <% k["officials"].each do |key, val| %>
-              <p><%= key["name"] %>
-              <p><a href="#myPoliticianModal" data-toggle="modal" data-target="#myPoliticianModal", class: "nav-link">View Politician</a></p>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <div>
+    <h4>Posts Feed</h4>
+    <% @posts.each do |post| %>
+        <h5><a href="<%= post.body %>"><%= post.title %></a></h5>
+        <p>by: <%= link_to post.user.username, user_path(post.user.id), method: :get %></p></li>
+        <p><%= link_to "View Post", post_path(post.id), method: :get %></p>
+    <% end %>
   </div>
-  <div class="row">
-    <div class="dashboard-panels">
-      <div class="panel panel-default">
-        <div class="panel-header">Spotlight</div>
-        <div class="panel-body">
-          <p>Prop 1</p>
-          <p>Day of Vote: Saturday, May 7, 2016</p>
-          <p>What is Prop 1?</p>
-          <p>The ordinance the ballot is asking you about is the potential new ordinance, the one backed by Uber and Lyft. So a vote “for the ordinance” is for the Uber and Lyft ordinance. A vote “against the ordinance” would be you saying, “I don’t want the Uber and Lyft ordinance. I want the existing city ordinance to remain in effect.”</p>
-          <a href="https://tax-office.traviscountytx.gov/voters/voter-registration">Click here to register to vote!</a>
-        </div>
-      </div>
-    </div>
-    <div class="dashboard-panels">
-      <div class="panel panel-default">
-        <div class="panel-header">Upcoming Events</div>
-        <div class="panel-body">
-          <% if @events.empty? %>
-            <p>You have no upcoming events</p>
-          <% end %>
-          <% @events.each do |event| %>
-            <p><strong><%= event.date %></strong></p>
-            <p><%= event.title %></p>
-            <p><%= link_to "View Event", event_path(event.id), method: :get %></p></li>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <hr />
+  <div>
+    <h4>Your Elected Officials</h4>
+    <% @offices.each.with_index do |office, index| %>
+      <%= render :partial => 'politicians/form', locals: { office: office, index: index } %>
+      <p><strong><%= office["name"] %></strong></p>
+      <% office["officials"].each do |key, val| %>
+        <p><%= key["name"] %>
+        <p><a href="<%= "#myPoliticianModal#{index}" %>" data-toggle="modal" data-target="<%= "#myPoliticianModal#{index}" %>", class: "nav-link">View Politician</a></p>
+      <% end %>
+    <% end %>
+  </div>
+  <hr />
+  <div>
+    <h4>Spotlight</h4>
+      <p>Prop 1</p>
+      <p>Day of Vote: Saturday, May 7, 2016</p>
+      <p>What is Prop 1?</p>
+      <p>The ordinance the ballot is asking you about is the potential new ordinance, the one backed by Uber and Lyft. So a vote “for the ordinance” is for the Uber and Lyft ordinance. A vote “against the ordinance” would be you saying, “I don’t want the Uber and Lyft ordinance. I want the existing city ordinance to remain in effect.”</p>
+      <a href="https://tax-office.traviscountytx.gov/voters/voter-registration">Click here to register to vote!</a>
+  </div>
+  <hr />
+  <div>
+    <h4>Upcoming Events</h4>
+    <% if @events.empty? %>
+      <p>You have no upcoming events</p>
+    <% end %>
+    <% @events.each do |event| %>
+      <p><strong><%= event.date %></strong></p>
+      <p><%= event.title %></p>
+      <p><%= link_to "View Event", event_path(event.id), method: :get %></p></li>
+    <% end %>
   </div>
 </div>
-<div class="modal fade" id="myPoliticianModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Politician View</h4>
-      </div>
-      <div class="modal-body">
-        <p>Politician info goes here</p>
-      </div>
-    </div>
-  </div>
-</div>
+
+<% @offices.each do |k, v| %>
+  <p><%= k %></p>
+<% end %>

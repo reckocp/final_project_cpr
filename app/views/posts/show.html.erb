@@ -25,7 +25,7 @@
 <% end %>
 
 <hr />
-<h5>Comments</h5>
+<h4>Comments</h4>
 <% if user_signed_in? %>
 <%= react_component('CommentForm', userID: current_user.id, postID: @post.id) %>
 

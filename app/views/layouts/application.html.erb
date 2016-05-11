@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div class="container">
@@ -66,9 +67,17 @@
           </div>
         </div>
       </div>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% flash.each do |key, value| %>
+           <div class="alert alert-<%= key %> alert-dismissable">
+               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+               <%= value %>
+           </div>
+  <% end %>
+  <!-- <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p> -->
+    <div class="bulk"
 <%= yield %>
+    </div>
   </div>
 </body>
 </html>
