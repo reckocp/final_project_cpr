@@ -19,9 +19,7 @@
    padding-top: 20px;
    padding-bottom: 20px;
  }
- .borderBox {
-   border: 0.1em solid black;
- }
+
  .header-fill {
    height: 10px;
    background-color: green;
@@ -32,10 +30,11 @@
    background-color: #3CC47C;
    color: white;
   div > div ul li:hover {
-     text-decoration: underline;
-     text-decoration-color: #1E392A;
+    text-decoration: underline;
+    text-decoration-color: #1E392A;
+    
   }
- }
+}
  hr {
    border: 0;
    height: 0.18em;

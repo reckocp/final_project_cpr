@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
-<h3>Welcome to <strong>YOUR</strong> Assembly Point <strong><%= @user.username %></strong></h3>
+<h3>Welcome to Assembly Point, <strong><%= @user.username %></strong>!</h3>
 <% else %>
-<h3> Welcome to <strong>YOUR</strong> ASSEMBLY POINT.</h3>
+<h3> Welcome to  ASSEMBLY POINT.</h3>
 <h5>Sign up today for the full experience!</h5>
 <p><%=link_to "Enter a new address!", root_path, method: :get %></p>
 <% end %>
@@ -27,7 +27,7 @@
         <h4>Posts Feed</h4>
         <hr />
         <% @posts.each do |post| %>
-            <span><h5><a href="<%= post.body %>"><%= post.title %></a></h5> <%= link_to "View Post", post_path(post.id), method: :get %></span>
+            <span><h5><a href="<%= post.body %>"><%= post.title %></a></h5></span>
             <p>by: <%= link_to post.user.username, user_path(post.user.id), method: :get %></p></li>
             <%= link_to "View Post", post_path(post.id), method: :get %>
         <% end %>

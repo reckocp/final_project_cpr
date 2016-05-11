@@ -11,6 +11,7 @@ class PoliticiansController < ApplicationController
   end
 
   def local
+    @events = Event.all
     @user = current_user
     @posts = Post.where(:level => "local").order(created_at: :desc)
     @politicians = collectPoliticians
@@ -24,6 +25,7 @@ class PoliticiansController < ApplicationController
   end
 
   def state
+    @events = Event.all
     @user = current_user
     @posts = Post.where(:level => "state").order(created_at: :desc)
     @politicians = collectPoliticians
@@ -39,6 +41,7 @@ class PoliticiansController < ApplicationController
   end
 
   def national
+    @events = Event.all
     @user = current_user
     @posts = Post.where(:level => "national")
     @politicians = collectPoliticians
