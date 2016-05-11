@@ -15,7 +15,7 @@
           <ol>
             <% @posts.each do |post| %>
                 <li><h4><a href="<%= post.body %>"><%= post.title %></a></h4>
-                <p>by: <%= post.user.username %></p>
+                <p>by: <%= link_to post.user.username, user_path(post.user.id), method: :get %></p></li>
                 <p><%= link_to "View Post", post_path(post.id), method: :get %></p></li>
             <% end %>
           </ol>
