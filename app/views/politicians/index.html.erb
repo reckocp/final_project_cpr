@@ -26,10 +26,11 @@
       <div class="panel panel-default">
         <div class="panel-header">Your Elected Officials</div>
         <div class="panel-body" style="max-height: 10em;overflow-y: scroll">
-          <% @offices.each do |k, v| %>
+          <% @offices.each_with_index do |k, index| %>
             <p><strong><%= k["name"] %></strong></p>
             <% k["officials"].each do |key, val| %>
               <p><%= key["name"] %>
+              <p><a href="#myPoliticianModal" data-toggle="modal" data-target="#myPoliticianModal", class: "nav-link">View Politician</a></p>
             <% end %>
           <% end %>
         </div>
@@ -62,6 +63,19 @@
             <p><%= link_to "View Event", event_path(event.id), method: :get %></p></li>
           <% end %>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myPoliticianModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Politician View</h4>
+      </div>
+      <div class="modal-body">
+        <p>Politician info goes here</p>
       </div>
     </div>
   </div>
