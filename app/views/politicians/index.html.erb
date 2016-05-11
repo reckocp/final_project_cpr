@@ -5,51 +5,57 @@
 <h5>Sign up today for the full experience!</h5>
 <p><%=link_to "Enter a new address!", root_path, method: :get %></p>
 <% end %>
-<hr />
+<hr class="welcome-hr" />
 <div class="container">
-  <div>
-    <h4>Posts Feed</h4>
-    <% @posts.each do |post| %>
-        <h5><a href="<%= post.body %>"><%= post.title %></a></h5>
-        <p>by: <%= link_to post.user.username, user_path(post.user.id), method: :get %></p></li>
-        <p><%= link_to "View Post", post_path(post.id), method: :get %></p>
-    <% end %>
-  </div>
-  <hr />
-  <div>
-    <h4>Your Elected Officials</h4>
-    <% @offices.each.with_index do |office, index| %>
-      <%= render :partial => 'politicians/form', locals: { office: office, index: index } %>
-      <p><strong><%= office["name"] %></strong></p>
-      <% office["officials"].each do |key, val| %>
-        <p><%= key["name"] %>
-        <p><a href="<%= "#myPoliticianModal#{index}" %>" data-toggle="modal" data-target="<%= "#myPoliticianModal#{index}" %>", class: "nav-link">View Politician</a></p>
-      <% end %>
-    <% end %>
-  </div>
-  <hr />
-  <div>
-    <h4>Spotlight</h4>
-      <p>Prop 1</p>
-      <p>Day of Vote: Saturday, May 7, 2016</p>
-      <p>What is Prop 1?</p>
-      <p>The ordinance the ballot is asking you about is the potential new ordinance, the one backed by Uber and Lyft. So a vote “for the ordinance” is for the Uber and Lyft ordinance. A vote “against the ordinance” would be you saying, “I don’t want the Uber and Lyft ordinance. I want the existing city ordinance to remain in effect.”</p>
-      <a href="https://tax-office.traviscountytx.gov/voters/voter-registration">Click here to register to vote!</a>
-  </div>
-  <hr />
-  <div>
-    <h4>Upcoming Events</h4>
-    <% if @events.empty? %>
-      <p>You have no upcoming events</p>
-    <% end %>
-    <% @events.each do |event| %>
-      <p><strong><%= event.date %></strong></p>
-      <p><%= event.title %></p>
-      <p><%= link_to "View Event", event_path(event.id), method: :get %></p></li>
-    <% end %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="dash-grids">
+        <h4>Your Elected Officials</h4>
+        <hr />
+        <% @offices.each.with_index do |office, index| %>
+          <%= render :partial => 'politicians/form', locals: { office: office, index: index } %>
+          <h5><%= office["name"] %></h5>
+          <% office["officials"].each do |key, val| %>
+            <p><%= key["name"] %>
+            <p><a href="<%= "#myPoliticianModal#{index}" %>" data-toggle="modal" data-target="<%= "#myPoliticianModal#{index}" %>", class: "nav-link">View Politician</a></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="dash-grids">
+        <h4>Posts Feed</h4>
+        <hr />
+        <% @posts.each do |post| %>
+            <span><h5><a href="<%= post.body %>"><%= post.title %></a></h5> <%= link_to "View Post", post_path(post.id), method: :get %></span>
+            <p>by: <%= link_to post.user.username, user_path(post.user.id), method: :get %></p></li>
+            <%= link_to "View Post", post_path(post.id), method: :get %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="dash-grids">
+        <h4>Spotlight</h4>
+        <hr />
+          <p>Prop 1</p>
+          <p>Day of Vote: Saturday, May 7, 2016</p>
+          <p>What is Prop 1?</p>
+          <p>The ordinance the ballot is asking you about is the potential new ordinance, the one backed by Uber and Lyft. So a vote “for the ordinance” is for the Uber and Lyft ordinance. A vote “against the ordinance” would be you saying, “I don’t want the Uber and Lyft ordinance. I want the existing city ordinance to remain in effect.”</p>
+          <a href="https://tax-office.traviscountytx.gov/voters/voter-registration">Click here to register to vote!</a>
+      </div>
+      <hr />
+      <div class="dash-grids">
+        <h4>Upcoming Events</h4>
+        <hr />
+        <% if @events.empty? %>
+          <p>You have no upcoming events</p>
+        <% end %>
+        <% @events.each do |event| %>
+          <p><strong><%= event.date %></strong></p>
+          <p><%= event.title %></p>
+          <p><%= link_to "View Event", event_path(event.id), method: :get %></p></li>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
-<% @offices.each do |k, v| %>
-  <p><%= k %></p>
-<% end %>

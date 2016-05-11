@@ -21,15 +21,7 @@ class ConversationsController < ApplicationController
       render :new
     end
   end
-  def update
-    @conversation = Conversation.find(params[:id])
-    if @conversation.update_attributes@(params[:conversation])
-      flash[:notice] = "Successfully updated conversation"
-      redirect_to @conversation
-    else
-      render :action => 'edit'
-    end
-  end
+
   private
   def get_conversation
     @conversation = Conversation.find(params[:id])

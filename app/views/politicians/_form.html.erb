@@ -11,7 +11,9 @@
         <% end %>
         <% office.fetch('officials', []).each do |official| %>
           <p><%= official['name'] %></p>
-          <img src="<%= official['photoUrl']%>"/>
+          <div class="imageContainer">
+            <img src="<%= official['photoUrl']%>"/>
+          </div>
           <% official['address'].each do |el1, el2| %>
             <p><%= el1['line1'] %></p>
             <p><%= el1['line2'] %></p>

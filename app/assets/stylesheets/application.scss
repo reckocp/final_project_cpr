@@ -19,6 +19,9 @@
    padding-top: 20px;
    padding-bottom: 20px;
  }
+ .borderBox {
+   border: 0.1em solid black;
+ }
  .header-fill {
    height: 10px;
    background-color: green;
@@ -26,15 +29,36 @@
  nav.navbar-default {
    margin-bottom: 20px;
    font-family: 'Bitter', serif;
+   background-color: #3CC47C;
+   color: white;
   div > div ul li:hover {
      text-decoration: underline;
+     text-decoration-color: #1E392A;
   }
  }
-
+ hr {
+   border: 0;
+   height: 0.18em;
+   background: #1E392A;
+   background-image: #1E392A;
+ }
+  .welcome-hr {
+    border: 0;
+    height: 0.1em;
+    background: #E9C893;
+    background-image: #1E392A;
+  }
  .bulk {
    font-family: 'Raleway', sans-serif;
  }
-
+ .imageContainer {
+   width: 18em;
+   border: black 1px;
+ }
+ .imageContainer img {
+  max-height: 100%;
+  max-width: 100%;
+  }
 .initial-page{
   text-align: center;
 }
