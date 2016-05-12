@@ -1,15 +1,15 @@
 t = Time.now
 x = Time.now + 5.hours
 
-User.create!(username: 'Colin', email: 'test@example.com', password: 'password', street: '1801 Rio Grande St, Api 202', city: 'Austin', state: 'TX', zip: '78701', party: 'Democratic Party')
-User.create!(username: 'Justin', email: 'test1@example.com', password: 'password', street: '3601 S Congress Ave C304', city: 'Austin', state: 'TX', zip: '78704', party: 'Democratic Party')
-User.create!(username: 'Nagmeh', email: 'test2@example.com', password: 'password', street: '2809 S 1st St', city: 'Austin', state: 'TX', zip: '78704', party: 'Democratic Party')
-User.create!(username: 'Brent', email: 'test3@example.com', password: 'password', street: '524 Louis Henna Blvd', city: 'Round Rock', state: 'TX', zip: '78664', party: 'Democratic Party')
-User.create!(username: 'Jordan', email: 'test4@example.com', password: 'password', street: '11410 Century Oaks Terrace', city: 'Austin', state: 'TX', zip: '78758', party: 'Democratic Party')
-User.create!(username: 'Jared', email: 'test5@example.com', password: 'password', street: '615 Red River St', city: 'Austin', state: 'TX', zip: '78701', party: 'Republican Party')
-User.create!(username: 'Van', email: 'test6@example.com', password: 'password', street: '1715 W Cesar Chavez St', city: 'Austin', state: 'TX', zip: '78703', party: 'Republican Party')
-User.create!(username: 'Vivek', email: 'test7@example.com', password: 'password', street: '3825 Lake Austin Blvd', city: 'Austin', state: 'TX', zip: '78703', party: 'Republican Party')
-User.create!(username: 'Dane', email: 'test8@example.com', password: 'password', street: '6550 Comanche Trail', city: 'Austin', state: 'TX', zip: '78732', party: 'Republican Party')
+User.create!(username: 'Colin', email: 'test@example.com', password: 'password', street: '1801 Rio Grande St, Api 202', city: 'Austin', state: 'TX', zip: '78701', party: 'Democratic Party', admin: true)
+User.create!(username: 'Justin', email: 'test1@example.com', password: 'password', street: '3601 S Congress Ave C304', city: 'Austin', state: 'TX', zip: '78704', party: 'Democratic Party', admin: false)
+User.create!(username: 'Nagmeh', email: 'test2@example.com', password: 'password', street: '2809 S 1st St', city: 'Austin', state: 'TX', zip: '78704', party: 'Democratic Party', admin: false)
+User.create!(username: 'Brent', email: 'test3@example.com', password: 'password', street: '524 Louis Henna Blvd', city: 'Round Rock', state: 'TX', zip: '78664', party: 'Democratic Party', admin: false)
+User.create!(username: 'Jordan', email: 'test4@example.com', password: 'password', street: '11410 Century Oaks Terrace', city: 'Austin', state: 'TX', zip: '78758', party: 'Democratic Party', admin: false)
+User.create!(username: 'Jared', email: 'test5@example.com', password: 'password', street: '615 Red River St', city: 'Austin', state: 'TX', zip: '78701', party: 'Republican Party', admin: false)
+User.create!(username: 'Van', email: 'test6@example.com', password: 'password', street: '1715 W Cesar Chavez St', city: 'Austin', state: 'TX', zip: '78703', party: 'Republican Party', admin: false)
+User.create!(username: 'Vivek', email: 'test7@example.com', password: 'password', street: '3825 Lake Austin Blvd', city: 'Austin', state: 'TX', zip: '78703', party: 'Republican Party', admin: false)
+User.create!(username: 'Dane', email: 'test8@example.com', password: 'password', street: '6550 Comanche Trail', city: 'Austin', state: 'TX', zip: '78732', party: 'Republican Party', admin: false)
 
 Post.create!(title: 'Column: We are going to miss Barack Obama when he is gone', body: 'http://www.chicagotribune.com/news/opinion/zorn/ct-missing-obama-already-perspec-zorn-0504-jm-20160503-column.html', user_id: 1, level: "national")
 Post.create!(title: 'Joe Biden Jokes He Expects to Be Trumps VP Pick', body: 'http://abcnews.go.com/Politics/joe-biden-jokes-expects-trumps-vp-pick/story?id=38873659', user_id: 2, level: "national")
