@@ -12,14 +12,29 @@
     <%= f.text_field :party %>
   </div>
 
-  <div class ="field">
-    <%= f.label :address %> <br />
-    <%= f.text_field :address %>
-  </div>
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
+  </div>
+
+  <div class ="field">
+    <%= f.label :street %> <br />
+    <%= f.text_field :street %>
+  </div>
+
+  <div class ="field">
+    <%= f.label :city %> <br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class ="field">
+    <%= f.label :state %> <br />
+    <%= select_tag :state, options_for_select(us_states) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zip_code %><br />
+    <%= f.text_field :zip %>
   </div>
 
   <div class="field">
@@ -39,6 +54,3 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-
-<button type="button" class="btn btn-secondary"><%= link_to 'Back', root_path %></button>

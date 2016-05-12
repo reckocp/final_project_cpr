@@ -31,7 +31,8 @@
    color: white;
   div > div ul li:hover {
     text-decoration: underline;
-    text-decoration-color: #1E392A;
+    // text-decoration-color: #1E392A;
+    color: #1E392A;
 
   }
 }
@@ -46,6 +47,8 @@ ul.nav.navbar-nav > li > a.nav-link {
 ul.nav.navbar-nav > li.nav-dropdown > a.dropdown-toggle {
   color: white;
 }
+
+
  hr {
    border: 0;
    height: 0.18em;

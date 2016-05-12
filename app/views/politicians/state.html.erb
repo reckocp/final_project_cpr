@@ -1,4 +1,4 @@
-<h4>Keep up with your state politicians, <%= @user.username %>!</h4>
+<h4>Keep up with your <%= @user.state %> politicians, <%= @user.username %>!</h4>
 <hr class="welcome-hr" />
 <div class="container">
   <div class="row">
@@ -20,6 +20,9 @@
       <div class="dash-grids">
         <h4>Posts Feed</h4>
         <hr />
+        <% if @posts.empty? %>
+          <p>You have no posts.</p>
+        <% end %>
         <% @posts.each do |post| %>
             <span><h5><a href="<%= post.body %>"><%= post.title %></a></h5></span>
             <p>by: <%= link_to post.user.username, user_path(post.user.id), method: :get %></p></li>
@@ -69,6 +72,22 @@
           <p><%= event.title %></p>
           <p><%= link_to "View Event", event_path(event.id), method: :get %></p></li>
         <% end %>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#newEventModal">
+          Create Event
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="newEventModal" tabindex="-1" role="dialog" aria-labelledby="newEventModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Assembly Point</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'events/new' %>
       </div>
     </div>
   </div>

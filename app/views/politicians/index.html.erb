@@ -26,6 +26,9 @@
       <div class="dash-grids">
         <h4>Posts Feed</h4>
         <hr />
+        <% if @posts.empty? %>
+          <p>You have no posts.</p>
+        <% end %>
         <% @posts.each do |post| %>
             <span><h5><a href="<%= post.body %>"><%= post.title %></a></h5></span>
             <p>by: <%= link_to post.user.username, user_path(post.user.id), method: :get %></p></li>

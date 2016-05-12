@@ -2,18 +2,18 @@ class PoliticiansController < ApplicationController
   before_filter :authenticate_user!, except: [:home, :index]
   def index
     @user = current_user
-    @posts = Post.all.order(created_at: :desc)
+    @posts = User.where(:state => current_user.state).joins(:posts).order("posts.created_at DESC").flat_map { |x| x.posts }
+    @events = User.near(current_user).joins(:events).flat_map { |x| x.events }
     @politicians = collectPoliticians
-    @events = Event.all
   end
 
   def show
   end
 
   def local
-    @events = Event.all
+    @events = User.near(current_user).joins(:events).where("events.level = 'local'").flat_map { |x| x.events }
     @user = current_user
-    @posts = Post.where(:level => "local").order(created_at: :desc)
+    @posts = User.near(current_user).joins(:posts).where("posts.level = 'local'").order("posts.created_at DESC").flat_map { |x| x.posts }
     @politicians = collectPoliticians
     @localOffices = []
     @offices.each do |office|
@@ -25,9 +25,9 @@ class PoliticiansController < ApplicationController
   end
 
   def state
-    @events = Event.all
+    @events = User.where(:state => current_user.state).joins(:events).where("events.level = 'state'").flat_map { |x| x.events }
     @user = current_user
-    @posts = Post.where(:level => "state").order(created_at: :desc)
+    @posts = User.where(:state => current_user.state).joins(:posts).where("posts.level = 'state'").order("posts.created_at DESC").flat_map { |x| x.posts }
     @politicians = collectPoliticians
     @stateOffices = []
     @offices.each do |k, v|
@@ -41,9 +41,9 @@ class PoliticiansController < ApplicationController
   end
 
   def national
-    @events = Event.all
+    @events = User.where(:state => current_user.state).joins(:events).where("events.level = 'national'").flat_map { |x| x.events }
     @user = current_user
-    @posts = Post.where(:level => "national")
+    @posts = User.where(:state => current_user.state).joins(:posts).where("posts.level = 'national'").order("posts.created_at DESC").flat_map { |x| x.posts }
     @politicians = collectPoliticians
     @nationalOffices = []
     @offices.each do |k, v|
@@ -65,7 +65,7 @@ class PoliticiansController < ApplicationController
     end
     response = HTTParty.get("https://www.googleapis.com/civicinfo/v2/representatives?address=#{address}&key=#{CI.key}")
     parsed_data = JSON.parse(response.body)
-    @offices = parsed_data['offices']
+    @offices = parsed_data.fetch('offices', [])
     @officials = parsed_data['officials']
     @offices.each do |eli1|
       eli1["officials"] = eli1["officialIndices"].map { |idx|

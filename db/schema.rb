@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509220135) do
+ActiveRecord::Schema.define(version: 20160512203801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20160509220135) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "location"
+    t.integer  "user_id"
+    t.string   "level"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -76,6 +78,8 @@ ActiveRecord::Schema.define(version: 20160509220135) do
     t.integer  "user_id"
     t.string   "level"
     t.string   "summary"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "upvotes", force: :cascade do |t|
@@ -102,8 +106,13 @@ ActiveRecord::Schema.define(version: 20160509220135) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "username"
-    t.string   "address"
     t.string   "party"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "street"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

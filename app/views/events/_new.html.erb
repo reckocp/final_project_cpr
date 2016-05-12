@@ -1,0 +1,23 @@
+
+<%= form_for [Event.new] do |f| %>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label :title %>
+    <p><%= f.text_field :title %></p>
+    <%= f.label :description %>
+    <p><%= f.text_area :description %></p>
+    <%= f.label :location %>
+    <p><%= f.text_field :location %></p>
+    <%= f.label :date %>
+    <p><%= f.date_field :date %></p>
+    <%= f.label :start_time %>
+    <p><%= f.time_field :start_time %></p>
+    <%= f.label :end_time %>
+    <p><%= f.time_field :end_time %></p>
+    <%= f.label :level_of_government %>
+    <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']] %></p>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
