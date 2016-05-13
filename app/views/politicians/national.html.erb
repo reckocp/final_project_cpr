@@ -54,11 +54,20 @@
       <div class="dash-grids">
         <h4>Spotlight</h4>
         <hr />
-        <p><%= @spotlights.title %></p>
-        <p>What is <%= @spotlights.title %>?</p>
-        <p><%= @spotlights.description %></p>
-        <p>Date: <%= @spotlights.date %></p>
-        <a href=" <%=@spotlights.url %>">Click here for more information!</a>
+        <% if @spotlights.nil? %>
+          <p>You have no spotlighted events.<p>
+        <% else %>
+          <p><%= @spotlights.title %></p>
+          <p>What is <%= @spotlights.title %>?</p>
+          <p><%= @spotlights.description %></p>
+          <p>Date: <%= @spotlights.date %></p>
+          <a href=" <%=@spotlights.url %>">Click here for more information!</a>
+        <% end %>
+        <% if current_user.admin? %>
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#newSpotlightModal">
+            Create Spotlight
+          </button>
+        <% end %>
       </div>
       <hr />
       <div class="dash-grids">
@@ -90,6 +99,19 @@
       </div>
       <div class="modal-body">
         <%= render partial: 'events/new' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="newSpotlightModal" tabindex="-1" role="dialog" aria-labelledby="newSpotlightModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Assembly Point</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'spotlights/new' %>
       </div>
     </div>
   </div>
