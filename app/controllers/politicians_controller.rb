@@ -1,10 +1,16 @@
 class PoliticiansController < ApplicationController
   before_filter :authenticate_user!, except: [:home, :index]
   def index
-    @user = current_user
-    @posts = User.where(:state => current_user.state).joins(:posts).order("posts.created_at DESC").flat_map { |x| x.posts }
-    @events = User.near(current_user).joins(:events).flat_map { |x| x.events }
-    @politicians = collectPoliticians
+    if user_signed_in?
+      @user = current_user
+      @posts = User.where(:state => current_user.state).joins(:posts).order("posts.created_at DESC").flat_map { |x| x.posts }
+      @events = User.near(current_user).joins(:events).flat_map { |x| x.events }
+      @politicians = collectPoliticians
+    else
+      @posts = Post.near(params[:address])
+      @politicians = collectPoliticians
+      @events = Event.near(params[:address])
+    end
   end
 
   def show
