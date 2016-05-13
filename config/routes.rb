@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
-  
+
   resources :conversations do
     resources :messages
   end
   resources :events
-
+  resources :spotlights
 end

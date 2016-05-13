@@ -40,11 +40,15 @@
       <div class="dash-grids">
         <h4>Spotlight</h4>
         <hr />
-          <p>Prop 1</p>
-          <p>Day of Vote: Saturday, May 7, 2016</p>
-          <p>What is Prop 1?</p>
-          <p>The ordinance the ballot is asking you about is the potential new ordinance, the one backed by Uber and Lyft. So a vote “for the ordinance” is for the Uber and Lyft ordinance. A vote “against the ordinance” would be you saying, “I don’t want the Uber and Lyft ordinance. I want the existing city ordinance to remain in effect.”</p>
-          <a href="https://tax-office.traviscountytx.gov/voters/voter-registration">Click here to register to vote!</a>
+        <% if @spotlights.nil? %>
+          <p>You have no spotlighted events.<p>
+        <% else %>
+          <p><%= @spotlights.title %></p>
+          <p>What is <%= @spotlights.title %>?</p>
+          <p><%= @spotlights.description %></p>
+          <p>Date: <%= @spotlights.date %></p>
+          <a href=" <%=@spotlights.url %>">Click here for more information!</a>
+        <% end %>  
       </div>
       <hr />
       <div class="dash-grids">

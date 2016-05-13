@@ -6,10 +6,12 @@ class PoliticiansController < ApplicationController
       @posts = User.where(:state => current_user.state).joins(:posts).order("posts.created_at DESC").flat_map { |x| x.posts }
       @events = User.near(current_user).joins(:events).flat_map { |x| x.events }
       @politicians = collectPoliticians
+      @spotlights = Spotlight.joins(:user).where("users.state = ?", current_user.state).order("spotlights.created_at DESC").limit(1).first
     else
       @posts = Post.near(params[:address])
       @politicians = collectPoliticians
       @events = Event.near(params[:address])
+      @spotlights = Spotlight.near(params[:address]).first
     end
   end
 
@@ -18,6 +20,8 @@ class PoliticiansController < ApplicationController
 
   def local
     @events = User.near(current_user).joins(:events).where("events.level = 'local'").flat_map { |x| x.events }
+    @spotlights = User.near(current_user).joins(:spotlights).where("spotlights.level = 'local'").flat_map { |x| x.spotlights }
+    @spotlights = Spotlight.joins(:user).near(current_user).where("spotlights.level = 'local'").order("spotlights.created_at DESC").limit(1).first
     @user = current_user
     @posts = User.near(current_user).joins(:posts).where("posts.level = 'local'").order("posts.created_at DESC").flat_map { |x| x.posts }
     @politicians = collectPoliticians
@@ -33,6 +37,7 @@ class PoliticiansController < ApplicationController
   def state
     @events = User.where(:state => current_user.state).joins(:events).where("events.level = 'state'").flat_map { |x| x.events }
     @user = current_user
+    @spotlights = Spotlight.joins(:user).near(current_user).where("spotlights.level = 'state'").order("spotlights.created_at DESC").limit(1).first
     @posts = User.where(:state => current_user.state).joins(:posts).where("posts.level = 'state'").order("posts.created_at DESC").flat_map { |x| x.posts }
     @politicians = collectPoliticians
     @stateOffices = []
@@ -50,6 +55,7 @@ class PoliticiansController < ApplicationController
     @events = User.where(:state => current_user.state).joins(:events).where("events.level = 'national'").flat_map { |x| x.events }
     @user = current_user
     @posts = User.where(:state => current_user.state).joins(:posts).where("posts.level = 'national'").order("posts.created_at DESC").flat_map { |x| x.posts }
+    @spotlights = Spotlight.joins(:user).near(current_user).where("spotlights.level = 'national'").order("spotlights.created_at DESC").limit(1).first
     @politicians = collectPoliticians
     @nationalOffices = []
     @offices.each do |k, v|

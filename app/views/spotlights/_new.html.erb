@@ -1,0 +1,19 @@
+
+<%= form_for [Spotlight.new] do |f| %>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label :title %>
+    <p><%= f.text_field :title %></p>
+    <%= f.label :description %>
+    <p><%= f.text_area :description %></p>
+    <%= f.label :date %>
+    <p><%= f.date_field :date %></p>
+    <%= f.label :link %>
+    <p><%= f.url_field :url, :value => "http://" %></p>
+    <%= f.label :level_of_government %>
+    <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']] %></p>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

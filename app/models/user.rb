@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :recipient_conversations, foreign_key: :recipient_id, class_name: :Conversation
   has_many :posts
   has_many :events
+  has_many :spotlights
 
   def conversations
      sender_conversations | recipient_conversations
