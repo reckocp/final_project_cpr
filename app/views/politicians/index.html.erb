@@ -65,11 +65,11 @@
         <% if @spotlights.nil? %>
           <p>You have no spotlighted events.<p>
         <% else %>
-          <p><strong><%= @spotlights.title %></strong></p>
+          <h5><strong><%= @spotlights.title %></strong></h5>
           <p>What is <%= @spotlights.title %>?</p>
           <p><%= @spotlights.description %></p>
           <p>Date: <%= @spotlights.date %></p>
-          <a href=" <%=@spotlights.url %>">Click here for more information!</a>
+          <strong><a href=" <%=@spotlights.url %>">Click here for more information!</a></strong>
         <% end %>
 
       </div>
@@ -83,8 +83,8 @@
           <p>You have no upcoming events</p>
         <% end %>
         <% @events.each do |event| %>
-          <p><strong><%= event.date %></strong></p>
-          <p><%= link_to event.title, event_path(event.id), method: :get %></p></li>
+          <strong><p><%= link_to event.title, event_path(event.id), method: :get %></p></strong>
+          <p><%= event.date %></p>
         <% end %>
       </div>
     </div>
