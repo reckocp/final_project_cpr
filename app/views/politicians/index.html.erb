@@ -10,40 +10,62 @@
   <div class="row">
     <div class="col-md-3">
       <div class="dash-grids">
-        <h4>Your Elected Officials</h4>
-        <hr />
+        <div class='column-header'>
+          <h4>Your Elected Officials</h4>
+          <hr />
+        </div>
         <% @offices.each.with_index do |office, index| %>
           <%= render :partial => 'politicians/form', locals: { office: office, index: index } %>
-          <h5><%= office["name"] %></h5>
-          <% office["officials"].each do |key, val| %>
-            <p><%= key["name"] %>
-            <p><a href="<%= "#myPoliticianModal#{index}" %>" data-toggle="modal" data-target="<%= "#myPoliticianModal#{index}" %>", class: "nav-link">View Politician</a></p>
-          <% end %>
+          <div class='politician-office'>
+            <% office["officials"].each do |key, val| %>
+              <p>
+                <a href="<%= "#myPoliticianModal#{index}" %>" data-toggle="modal" data-target="<%= "#myPoliticianModal#{index}" %>", class: "nav-link">
+                  <strong><%= key["name"] %></strong>
+                </a>
+              </p>
+              <h5><%= office["name"] %></h5>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="dash-grids">
-        <h4>Posts Feed</h4>
-        <hr />
-        <% if @posts.empty? %>
-          <p>You have no posts.</p>
-        <% end %>
-        <% @posts.each do |post| %>
-            <span><h5><a href="<%= post.body %>"><%= post.title %></a></h5></span>
-            <p>by: <%= link_to post.user.username, user_path(post.user.id), method: :get %></p></li>
-            <%= link_to "View Post", post_path(post.id), method: :get %>
-        <% end %>
+        <div class='column-header'>
+          <h4>Posts Feed</h4>
+          <hr />
+        </div>
+        <div class="post-feed">
+          <% if @posts.empty? %>
+            <p>You have no posts.</p>
+          <% end %>
+          <% @posts.each do |post| %>
+              <h5><strong><a href="<%= post.body %>"><%= post.title %></a></strong></h5>
+              <div class="posts-inline">
+                <p>posted by <%= link_to post.user.username, user_path(post.user.id), method: :get %> <%= time_ago_in_words(post.created_at) %> ago</p>
+                <% if post.comments.count > 1 %>
+                  <strong><%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
+                <% elsif post.comments.count == 0 %>
+                  <strong><%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
+                <% else %>
+                  <strong><%= link_to "#{post.comments.count} comment", post_path(post.id), method: :get %></strong>
+                <% end %>
+
+              </div>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="dash-grids">
-        <h4>Spotlight</h4>
-        <hr />
+        <div class='column-header'>
+          <h4>Spotlight</h4>
+          <hr />
+        </div>
         <% if @spotlights.nil? %>
           <p>You have no spotlighted events.<p>
         <% else %>
-          <p><%= @spotlights.title %></p>
+          <p><strong><%= @spotlights.title %></strong></p>
           <p>What is <%= @spotlights.title %>?</p>
           <p><%= @spotlights.description %></p>
           <p>Date: <%= @spotlights.date %></p>
@@ -53,15 +75,16 @@
       </div>
       <hr />
       <div class="dash-grids">
-        <h4>Upcoming Events</h4>
-        <hr />
+        <div class='column-header'>
+          <h4>Upcoming Events</h4>
+          <hr />
+        </div>
         <% if @events.empty? %>
           <p>You have no upcoming events</p>
         <% end %>
         <% @events.each do |event| %>
           <p><strong><%= event.date %></strong></p>
-          <p><%= event.title %></p>
-          <p><%= link_to "View Event", event_path(event.id), method: :get %></p></li>
+          <p><%= link_to event.title, event_path(event.id), method: :get %></p></li>
         <% end %>
       </div>
     </div>

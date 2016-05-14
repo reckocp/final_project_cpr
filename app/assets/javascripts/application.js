@@ -23,3 +23,12 @@
 //= require bootstrap/modal
 //= require bootstrap/transition
 //= require_tree .
+$('#iconified').on('keyup', function() {
+    var input = $(this);
+    if(input.val().length === 0) {
+        input.addClass('empty');
+    } else {
+        input.removeClass('empty');
+    }
+});
+document.addEventListener("touchstart", function(){}, true);

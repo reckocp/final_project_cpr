@@ -1,17 +1,33 @@
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="initial-page">
   <div class="container">
-      <div>
-        <h4>Assembly Point</h4>
-        <p>A place where communities come together to be the change they wish to see in the world</p>
+      <div class="row" id="top-row">
+        <div>
+          <h1>Assembly Point</h3>
+        </div>
       </div>
-      <div>
-          <h3>Find out who's representing you</h3>
-          <form action='/politicians'>
-            <label>Address</label>
-            <input type="text" name="address" placeholder="e.g.: 3601 S Congress Ave, Austin TX 78704" required />
-            <input type="submit" class="button tiny round" value="Find" />
-          </form>
+      <div class="row" id="middle-row">
+        <div>
+            <h3>Enter your address below to learn more!</h3>
+            <form class="search-container" action="/politicians">
+              <input id="search-box" type="text" class="search-box" name="address" />
+              <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
+              <input type="submit" id="search-submit" />
+            </form>
 
+        </div>
       </div>
+    <div class="row" id="bottom-row">
+      <div class="col-md-4" id="new-user-panel-1">
+        <p>Community</p>
+        <p>
+      </div>
+      <div class="col-md-4" id="new-user-panel-2">
+        <p>Knowledge</p>
+      </div>
+      <div class="col-md-4" id="new-user-panel-3">
+        <p>Participation</p>
+      </div>
+    </div>
   </div>
 <div>

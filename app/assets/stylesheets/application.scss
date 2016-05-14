@@ -9,12 +9,14 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome";
+
  body {
    padding-top: 20px;
    padding-bottom: 20px;
@@ -29,9 +31,9 @@
    font-family: 'Bitter', serif;
    background-color: #3CC47C;
    color: white;
+   padding: 1em 0 1em 0;
   div > div ul li:hover {
     text-decoration: underline;
-    // text-decoration-color: #1E392A;
     color: #1E392A;
 
   }
@@ -48,7 +50,25 @@ ul.nav.navbar-nav > li.nav-dropdown > a.dropdown-toggle {
   color: white;
 }
 
-
+#top-row {
+  height: 4em;
+  font-family: 'Bitter', serif;
+  text-align: center;
+}
+#middle-row {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+#bottom-row {
+  height: 50em;
+}
+.address-input {
+  font-family: FontAwesome;
+  padding: 1em 0 1em 0;
+  border-radius: 1em;
+  text-align: left;
+  width: 100%;
+}
  hr {
    border: 0;
    height: 0.18em;
@@ -73,5 +93,103 @@ ul.nav.navbar-nav > li.nav-dropdown > a.dropdown-toggle {
   max-width: 100%;
   }
 .initial-page{
-  text-align: center;
+  // padding: 2em;
+}
+
+
+// Search bar //
+$tl: 0.6s;
+
+
+body {
+  // margin: 5%;
+}
+
+.search-box {
+  transition: width $tl, border-radius $tl, background $tl, box-shadow $tl;
+  width: 40px;height: 40px;
+  border-radius: 20px;border: none;
+  cursor: pointer;
+  background: rgb(235, 235, 235);
+  & + label .search-icon {    color: black    }
+  &:hover {
+    color: white;
+    background: rgb(200, 200, 200);
+    box-shadow: 0 0 0 5px rgb(61, 71, 82);
+    & + label .search-icon {    color: white    }
+  }
+  &:focus {
+    transition: width $tl cubic-bezier(0,1.22,.66,1.39), border-radius $tl, background $tl;
+    border: none;outline: none;
+    box-shadow: none;
+    padding-left: 15px;
+    cursor: text;
+    width: 100%;
+    border-radius: auto;
+    background: rgb(235, 235, 235);
+    color: black;
+    & + label .search-icon {    color: black;    }
+  }
+  &:not(:focus) {    text-indent:-5000px;    } // for more-graceful falling back (:not browsers likely support indent)
+}
+
+#search-submit {
+  position: relative;left: -5000px;
+}
+
+.search-icon {
+  position: relative;
+  left: -30px;
+  color: white;
+  cursor: pointer;
+}
+// end search bar //
+#new-user-panel-1 {
+  background-color: #1E392A;
+  color: white;
+  height: 25em;
+  padding: 2em;
+}
+#new-user-panel-2 {
+  background-color: #E9C893;
+  color: white;
+  height: 25em;
+  padding: 2em;
+}
+#new-user-panel-3 {
+  background-color: #828081;
+  color: white;
+  height: 25em;
+  padding: 2em;
+}
+
+.politician-office {
+  p {
+    margin-bottom: 0;
+  }
+
+  h5 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.column-header {
+  h4 {
+    font-weight: 800;
+    font-size: 20px;
+  }
+  hr {
+    margin-top: 5px;
+  }
+}
+
+.post-feed {
+  h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .posts-inline {
+    margin-bottom: 20px;
+  }
 }
