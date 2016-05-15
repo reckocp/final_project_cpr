@@ -112,9 +112,9 @@ body {
     transition: width $tl cubic-bezier(0,1.22,.66,1.39), border-radius $tl, background $tl;
     border: none;outline: none;
     box-shadow: none;
-    padding-left: 15px;
+    padding-left: 13px;
     cursor: text;
-    width: 100%;
+    width: 98%;
     border-radius: auto;
     background: rgb(235, 235, 235);
     color: black;
@@ -137,18 +137,18 @@ body {
 #new-user-panel-1 {
   height: 25em;
   padding: 2em;
-  border: 0.1em solid black;
+  // border: 0.1em solid black;
 }
 #new-user-panel-2 {
   height: 25em;
   padding: 2em;
-  border-top: 0.1em solid black;
-  border-bottom: 0.1em solid black;
+  // border-top: 0.1em solid black;
+  // border-bottom: 0.1em solid black;
 }
 #new-user-panel-3 {
   height: 25em;
   padding: 2em;
-  border: 0.1em solid black;
+  // border: 0.1em solid black;
 }
 
 .politician-office {
@@ -231,4 +231,49 @@ body {
 }
 .spotlight-title {
   text-align: center;
+}
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+.input-field input[type="text"]:focus,
+.input-field input[type="text"].focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+  border-color: black;
+}
+.modal-text {
+  font-family: 'Raleway', sans-serif;
+}
+.modal-header-text {
+  font-family: 'Bitter', serif;
+}
+// .logo-font {
+//   display: inline-block;
+// }
+.splash-icon {
+  border: 0.2em solid black;
+  border-radius: 100px;
+}
+.nav-dropdown-padding {
+  text-align: center;
+}
+.logo-text {
+  font-family: 'Bitter', serif;
+  float: left;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+#logo {
+  float: left;
+}
+.spotlight-hr {
+  border: 0;
+  height: 0.1em;
+  background: #E9C893;
+  background-image: #1E392A;
+  margin-top: 0;
+  width: 80%;
 }

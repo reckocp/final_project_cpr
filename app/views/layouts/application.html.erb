@@ -14,8 +14,13 @@
           <div class="container-fluid">
             <div class="navbar-header">
               <a class='navbar-brand'>
-                <i class="fa fa-compass fa-1x" id="logo" aria-hidden="true"></i>
-                Assembly Point
+                <div class="logo-font">
+                  <i class="fa fa-compass fa-2x" id="logo" aria-hidden="true">
+                    <div class="logo-text">
+                      Assembly Point
+                    </div>  
+                  </i>
+                </div>
               </a>
             </div>
             <div class='navbar-collapse collapse'>
@@ -28,9 +33,11 @@
                   <li class="nav-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><p><%= link_to "Profile", user_path(current_user), method: :get %></p></li>
-                      <li><p><%= link_to "Inbox", conversations_path, method: :get %></p></li>
-                      <li><p><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></p></li>
+                      <div class="nav-dropdown-padding">
+                        <li><p><%= link_to "Profile", user_path(current_user), method: :get %></p></li>
+                        <li><p><%= link_to "Inbox", conversations_path, method: :get %></p></li>
+                        <li><p><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></p></li>
+                      </div>
                     </ul>
                   </li>
                 </ul>
@@ -49,7 +56,9 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Assembly Point</h4>
+                <div class="modal-header-text">
+                  <h4 class="modal-title" id="myModalLabel">Assembly Point</h4>
+                </div>
               </div>
               <div class="modal-body">
                 <%= render partial: 'devise/sessions/new' %>
@@ -62,7 +71,9 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Assembly Point</h4>
+                <div class="modal-header-text">
+                  <h4 class="modal-title" id="myModalLabel">Assembly Point</h4>
+                </div>
               </div>
               <div class="modal-body">
                 <%= render partial: 'devise/registrations/new' %>

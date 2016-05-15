@@ -1,56 +1,64 @@
-<h2>Sign up</h2>
+<div class="modal-text">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="field">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, class: "input-field" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :party %><br />
-    <%= f.text_field :party %>
-  </div>
+        <div class="field">
+          <%= f.label :party %><br />
+          <%= f.text_field :party, class: "input-field"  %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: "input-field"  %>
+        </div>
 
-  <div class ="field">
-    <%= f.label :street %> <br />
-    <%= f.text_field :street %>
-  </div>
+        <div class ="field">
+          <%= f.label :street %> <br />
+          <%= f.text_field :street, class: "input-field"  %>
+        </div>
 
-  <div class ="field">
-    <%= f.label :city %> <br />
-    <%= f.text_field :city %>
-  </div>
+        <div class ="field">
+          <%= f.label :city %> <br />
+          <%= f.text_field :city, class: "input-field"  %>
+        </div>
 
-  <div class ="field">
-    <%= f.label :state %> <br />
-    <%= select_tag :state, options_for_select(us_states) %>
-  </div>
+        <div class ="field">
+          <%= f.label :state %> <br />
+          <%= select_tag :state, options_for_select(us_states), class: "input-field"  %>
+        </div>
 
-  <div class="field">
-    <%= f.label :zip_code %><br />
-    <%= f.text_field :zip %>
-  </div>
+        <div class="field">
+          <%= f.label :zip_code %><br />
+          <%= f.text_field :zip, class: "input-field"  %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "input-field"  %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "input-field"  %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+        <div class="actions">
+          <%= f.submit "Sign up", id: "admin-buttons" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-2"></div>
   </div>
-<% end %>
+</div>

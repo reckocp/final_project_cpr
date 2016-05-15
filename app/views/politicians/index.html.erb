@@ -44,11 +44,11 @@
               <div class="posts-inline">
                 <p>posted by <%= link_to post.user.username, user_path(post.user.id), method: :get %> <%= time_ago_in_words(post.created_at) %> ago</p>
                 <% if post.comments.count > 1 %>
-                  <strong><%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
+                  <strong class="view_post_link"><%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
                 <% elsif post.comments.count == 0 %>
-                  <strong><%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
+                  <strong class="view_post_link"><%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
                 <% else %>
-                  <strong><%= link_to "#{post.comments.count} comment", post_path(post.id), method: :get %></strong>
+                  <strong class="view_post_link"><%= link_to "#{post.comments.count} comment", post_path(post.id), method: :get %></strong>
                 <% end %>
               </div>
           <% end %>
@@ -67,6 +67,7 @@
           <div class="spotlight-title">
             <h4><%= @spotlights.title %></h4>
           </div>
+          <hr class="spotlight-hr" />
           <p>What is the <%= @spotlights.title %>?</p>
           <p><%= @spotlights.description %></p>
           <p>Date: <%= @spotlights.date %></p>
