@@ -1,3 +1,5 @@
+
+
 var Comments = React.createClass({
   getInitialState: function() {
     return {
@@ -36,11 +38,10 @@ var Comments = React.createClass({
       <div>
       {this.state.postComments.map(function(comment){
         return (
-          <ul key={comment.id}>
-            <li><p>{comment.body}</p>
-            <p>by: {comment.user.username}</p>
-            <p><a href={'/users/' + comment.user.id}>Profile</a></p></li>
-          </ul>
+            <div key={comment.id}>
+              <p><strong>{comment.body}</strong></p>
+              <p>posted by <a href={'/users/' + comment.user.id}>{comment.user.username}</a></p>
+            </div>
         );
       })}
       </div>

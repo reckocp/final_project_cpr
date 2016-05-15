@@ -1,34 +1,42 @@
-<h3><a href="<%= @post.body %>"><%= @post.title %></a></h3>
-<div class="panel panel-default">
-  <div class="panel-body"><%= @post.summary %></div>
-</div>
-<h5>Posted by: <%= @post.user.username %></h5>
-<h5><%= link_to "Profile", user_path(@post.user.id), method: :get %></h5>
-<% if current_user == @post.user %>
-  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myEditModal">
-    Edit Post
-  </button>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h3><a href="<%= @post.body %>"><%= @post.title %></a></h3>
+    <div class="panel panel-default">
+      <div class="panel-body"><%= @post.summary %></div>
+    </div>
+    <p class="posted-by">posted by <%= link_to @post.user.username, user_path(@post.user.id), method: :get %> <%= time_ago_in_words(@post.created_at) %> ago</p>
+    <% if current_user == @post.user %>
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myEditModal">
+        Edit Post
+      </button>
 
-  <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">New Comment</h4>
-        </div>
-        <div class="modal-body">
-          <%= render 'posts/edit', review: @post.update(user_id: current_user.id) %>
+      <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">New Comment</h4>
+            </div>
+            <div class="modal-body">
+              <%= render 'posts/edit', review: @post.update(user_id: current_user.id) %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
+
+    <hr />
+
+      <h4><strong>Comments</strong></h4>
+        <div class="comment-form-box">
+          <% if user_signed_in? %>
+          <%= react_component('CommentForm', userID: current_user.id, postID: @post.id) %>
+        </div>
+
+        <% end %>
+        <%= react_component('Comments', comments: @post.comments, postID: @post.id) %>
+
   </div>
-<% end %>
-
-<hr />
-<h4>Comments</h4>
-<% if user_signed_in? %>
-<%= react_component('CommentForm', userID: current_user.id, postID: @post.id) %>
-
-
-<% end %>
-<%= react_component('Comments', comments: @post.comments, postID: @post.id) %>
+  <div class="col-md-3"></div>
+</div>

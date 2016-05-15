@@ -1,29 +1,39 @@
-<h1><%= @user.username %></h1>
-<h4><%= @user.email %></h4>
-<h4><%= @user.party %></h4>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <h1><%= @user.username %></h1>
+    <h4><%= @user.email %></h4>
+    <h4><%= @user.party %></h4>
 
-<hr />
+    <hr />
 
-User Post History:
-<% if @user.posts.empty? %>
- <p><%= @user.username %> hasn't made any posts yet.</p>
-<% end %>
-<% @user.posts.each do |post| %>
-<ol>
-  <li><p><a href="<%= post.body %>"><%= post.title %></a></p>
-  <p><%= link_to "View Post", post_path(post.id), method: :get %></p></li>
-</ol>
-<% end %>
+    <h4>User Post History:</h4>
+    <% if @user.posts.empty? %>
+     <p><%= @user.username %> hasn't made any posts yet.</p>
+    <% end %>
+    <% @user.posts.each do |post| %>
+    <ol>
+      <li><p><a href="<%= post.body %>"><%= post.title %></a></p>
+      <p class="view_post_link"><%= link_to "View Post", post_path(post.id), method: :get %></p></li>
+    </ol>
+    <% end %>
 
-<hr />
+    <hr />
 
-User Comment History:
-<% if @user.comments.empty? %>
- <p><%= @user.username %> hasn't made any comments yet.</p>
-<% end %>
-<% @user.comments.each do |comment| %>
-<ol>
- <li><p><%= comment.body %></p></li>
-</ol>
-<% end %>
-<%= link_to 'Send a message!', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class:'btn btn-default'%>
+    <h4>User Comment History:</h4>
+    <% if @user.comments.empty? %>
+     <p><%= @user.username %> hasn't made any comments yet.</p>
+    <% end %>
+    <% @user.comments.each do |comment| %>
+    <ol>
+     <li><p><%= comment.body %></p></li>
+    </ol>
+    <% end %>
+    <% if current_user != @user %>
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" id="admin-buttons">
+        <%= link_to 'Send a message!', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "message-button" %>
+      </button>
+    <% end %>  
+  </div>
+  <div class="col-md-3"></div>
+</div>

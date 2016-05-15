@@ -1,7 +1,11 @@
 <h3>Messages</h3>
 <hr />
-<% @messages.each do |message| %>
-  <p><%= message.user.username %>: <%= message.body %></p>
+<% if @messages.empty? %>
+  <h4>You have no messages with this user yet.</h4>
+<% else %>
+  <% @messages.each do |message| %>
+    <p><strong><%= message.user.username %></strong>: <%= message.body %></p>
+  <% end %>
 <% end %>
 <hr />
 <%= form_for [@conversation, Message.new] do |f| %>
@@ -10,6 +14,6 @@
    <%= f.hidden_field :user_id, :value => current_user.id %>
  </div>
  <div class="actions">
-   <%= f.submit "Send" %>
+     <%= f.submit "Send", id: "admin-buttons" %>
  </div>
 <% end %>

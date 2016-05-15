@@ -36,7 +36,7 @@ var CommentForm = React.createClass({
   render: function(){
     return (
       <div>
-        <label><p>New Comment:</p>
+        <label>
           <textarea row={40} cols={40}
                  className="form-control-100"
                  placeholder="Type here.."
@@ -47,7 +47,8 @@ var CommentForm = React.createClass({
           <input type="button"
                  className="btn btn-primary"
                  value="Post Comment"
-                 onClick={this.handlePostComment} />
+                 onClick={this.handlePostComment}
+                 id="admin-buttons"/>
         </label>
       </div>
     );

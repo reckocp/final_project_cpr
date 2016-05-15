@@ -51,16 +51,15 @@ ul.nav.navbar-nav > li.nav-dropdown > a.dropdown-toggle {
 }
 
 #top-row {
-  height: 4em;
   font-family: 'Bitter', serif;
   text-align: center;
 }
 #middle-row {
-  padding-top: 3em;
-  padding-bottom: 3em;
+  height: 30em;
+  text-align: center;
 }
 #bottom-row {
-  height: 50em;
+  text-align: center;
 }
 .address-input {
   font-family: FontAwesome;
@@ -84,17 +83,8 @@ ul.nav.navbar-nav > li.nav-dropdown > a.dropdown-toggle {
  .bulk {
    font-family: 'Raleway', sans-serif;
  }
- .imageContainer {
-   width: 18em;
-   border: black 1px;
- }
- .imageContainer img {
-  max-height: 100%;
-  max-width: 100%;
-  }
-.initial-page{
-  // padding: 2em;
-}
+
+
 
 
 // Search bar //
@@ -145,22 +135,20 @@ body {
 }
 // end search bar //
 #new-user-panel-1 {
-  background-color: #1E392A;
-  color: white;
   height: 25em;
   padding: 2em;
+  border: 0.1em solid black;
 }
 #new-user-panel-2 {
-  background-color: #E9C893;
-  color: white;
   height: 25em;
   padding: 2em;
+  border-top: 0.1em solid black;
+  border-bottom: 0.1em solid black;
 }
 #new-user-panel-3 {
-  background-color: #828081;
-  color: white;
   height: 25em;
   padding: 2em;
+  border: 0.1em solid black;
 }
 
 .politician-office {
@@ -192,4 +180,55 @@ body {
   .posts-inline {
     margin-bottom: 20px;
   }
+}
+.individual-lines{
+  margin-bottom: 0;
+}
+.modal-title {
+  text-align: center;
+}
+.modal-body{
+  text-align: center;
+  margin: auto;
+  .imageContainer {
+    width: 15em;
+    border: black 1px;
+  }
+  .imageContainer img {
+     max-height: 100%;
+     max-width: 100%;
+   }
+}
+
+#admin-buttons {
+  background-color: #1E392A;
+  font-family: 'Bitter', serif;
+  color: white;
+  border-radius: 20px;
+}
+#admin-buttons:hover{
+  opacity: 0.75;
+}
+.posted-by {
+  text-align: right;
+}
+.event-header {
+  text-align: center;
+  font-weight: bold;
+}
+.event-body {
+  margin-left: 4em;
+}
+.message-button {
+  color: white;
+}
+.message-button:hover {
+  color: white;
+  text-decoration: none;
+}
+.view_post_link {
+  text-align: right;
+}
+.spotlight-title {
+  text-align: center;
 }

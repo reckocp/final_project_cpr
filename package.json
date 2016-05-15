@@ -1,0 +1,27 @@
+{
+  "name": "final_project",
+  "version": "1.0.0",
+  "description": "Heroku: https://assembly-point.herokuapp.com/",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "react-ago-component": "^0.7.0",
+    "react-fontawesome": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reckocp/final_project_cpr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reckocp/final_project_cpr/issues"
+  },
+  "homepage": "https://github.com/reckocp/final_project_cpr#readme"
+}

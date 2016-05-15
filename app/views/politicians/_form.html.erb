@@ -3,44 +3,59 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Politician View</h4>
+        <div class="modal-title" id="myModalLabel">
+          <% office.fetch('officials', []).each do |official| %>
+            <h4><strong><%= official['name'] %></strong></h4>
+            <p class="individual-lines"><%= official['party'] %> Party</p>
+          <% end %>
+        </div>
       </div>
       <div class="modal-body">
-        <% if office['name'].present? %>
-          <p><%= office["name"] %></p>
-        <% end %>
-        <% office.fetch('officials', []).each do |official| %>
-          <p><%= official['name'] %></p>
-          <div class="imageContainer">
-            <img src="<%= official['photoUrl']%>"/>
+        <div class="row">
+          <div class="col-md-4">
+            <% office.fetch('officials', []).each do |official| %>
+              <% if official['photoUrl'].nil? %>
+                <div class="imageContainer">
+                  <img src="/assets/no-profile-img.gif"/>
+                </div>
+              <% else %>
+                <div class="imageContainer">
+                  <img src="<%= official['photoUrl']%>"/>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-          <% official.fetch('address', []).each do |el1, el2| %>
-            <p><%= el1['line1'].titleize %></p>
-            <% if el1['line2'].present? %>
-              <p><%= el1['line2'].titleize %></p>
+          <div class="col-md-8">
+            <% if office['name'].present? %>
+              <p><%= office["name"] %></p>
             <% end %>
-            <p><%= el1['city'].titleize %></p>
-            <p><%= el1['state'].upcase %></p>
-            <p><%= el1['zip'].titleize %></p>
-          <% end %>
-          <p><%= official['party'] %> Party</p>
-          <p><%= official.fetch('phones', [])[0] %></p>
-          <% official.fetch('urls', []).each do |url| %>
-            <p><a href="<%=url%>">Official Website</a></p>
-          <% end %>
-          <% official.fetch('emails', []).each do |email| %>
-            <p><%= email %></p>
-          <% end %>
-          <% official.fetch('channels', []).each do |channel| %>
-            <% if channel['type'].downcase == 'facebook' %>
-              <p><a href="https://www.facebook.com/<%= channel['id'] %>"><%= channel['type'] %></a></p>
-            <% elsif channel['type'].downcase == 'twitter' %>
-              <p><a href="https://www.twitter.com/<%= channel['id'] %>"><%= channel['type'] %></a></p>
-            <% elsif channel['type'].downcase == 'youtube' %>
-              <p><a href="https://www.youtube.com/<%= channel['id'] %>"><%= channel['type'] %></a></p>
+            <% office.fetch('officials', []).each do |official| %>
+              <% official.fetch('address', []).each do |el1, el2| %>
+                <p><%= el1['line1'].titleize %></p>
+                <% if el1['line2'].present? %>
+                  <p><%= el1['line2'].titleize %></p>
+                <% end %>
+                <p><%= el1['city'].titleize %>, <%= el1['state'].upcase %> <%= el1['zip'].titleize %></p>
+              <% end %>
+              <p><%= official.fetch('phones', [])[0] %></p>
+              <% official.fetch('urls', []).each do |url| %>
+                <p><a href="<%=url%>">Official Website</a></p>
+              <% end %>
+              <% official.fetch('emails', []).each do |email| %>
+                <p><%= email %></p>
+              <% end %>
+              <% official.fetch('channels', []).each do |channel| %>
+                <% if channel['type'].downcase == 'facebook' %>
+                  <a href="https://www.facebook.com/<%= channel['id'] %>"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
+                <% elsif channel['type'].downcase == 'twitter' %>
+                  <a href="https://www.twitter.com/<%= channel['id'] %>"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+                <% elsif channel['type'].downcase == 'youtube' %>
+                  <a href="https://www.youtube.com/<%= channel['id'] %>"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
+                <% end %>
+              <% end %>
             <% end %>
-          <% end %>
-        <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
