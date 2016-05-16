@@ -55,7 +55,7 @@ ul.nav.navbar-nav > li.nav-dropdown > a.dropdown-toggle {
   text-align: center;
 }
 #middle-row {
-  height: 30em;
+  min-height: 30em;
   text-align: center;
 }
 #bottom-row {
@@ -260,15 +260,19 @@ body {
 .nav-dropdown-padding {
   text-align: center;
 }
+
 .logo-text {
   font-family: 'Bitter', serif;
   font-weight: bold;
   font-size: 0.8em;
-  float: left;
+  float:left;
+  line-height: 22px;
 }
-#logo {
-  display:inline-block;;
+
+#logo:after {
+  position: relative;
 }
+
 .spotlight-hr {
   border: 0;
   height: 0.1em;
@@ -279,4 +283,46 @@ body {
 }
 .navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
   // border-radius: 15px;
+}
+.tab {
+  margin-left: 40px;
+}
+
+#nav-toggle-button {
+  background-color: white;
+}
+.padding-modal {
+  padding-top: 1em;
+}
+.posts-links {
+  margin-top: -8px;
+}
+.posts-links-two {
+  margin-bottom: 18px;
+}
+li.active {
+ background: #3CC47C;
+}
+
+ul.nav.navbar-nav > li > a.nav-link {
+   color: white;
+   background-color: #3CC47C;
+   &:hover, &:focus, &:active {
+     background-color: darken(#3CC47C, 5%);
+   }
+}
+
+#message-buttons {
+  background-color: #1E392A;
+  font-family: 'Bitter', serif;
+  color: white;
+  border-radius: 20px;
+  margin-right: auto;
+}
+#message-buttons:hover{
+  opacity: 0.75;
+}
+
+.current_user_message {
+  text-align: right;
 }

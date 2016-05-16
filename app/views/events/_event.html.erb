@@ -1,0 +1,5 @@
+<p><b>Name:</b> <%= @event.title %></p>
+<p><b>Description:</b> <%= @event.description %></p>
+<p><b>Location:</b> <%= @event.location %></p>
+<p><b>Date:</b> <%= @event.date.strftime("%A, %B %d, %Y") %></p>
+<p><b>Time:</b> <%= @event.start_time.strftime("%I:%M %p") %> to <%=event.end_time.strftime("%I:%M %p") %></p>

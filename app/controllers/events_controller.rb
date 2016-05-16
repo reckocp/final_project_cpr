@@ -5,6 +5,12 @@ class EventsController < ApplicationController
 
   def show
     @event = get_event
+    
+    respond_to do |format|
+        format.html
+        format.js
+        format.json { render json: @event }
+    end
   end
 
   def new

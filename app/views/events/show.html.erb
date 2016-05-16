@@ -1,18 +1,21 @@
-
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6">
-    <div class="event-header">
-      <h4><strong>Event Information Page</strong></h4>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><%= @event.title %></strong></h3>
+      </div>
+      <div class="panel-body">
+        <b>Description:</b>
+        <p><%= @event.description %></p>
+        <b>Location:</b>
+        <p><%= @event.location %></p>
+        <b>Date:</b>
+        <p><%= @event.date.strftime("%A, %B %d, %Y") %></p>
+        <b>Time:</b>
+        <p><%= @event.start_time.strftime("%I:%M %p") %> to <%=@event.end_time.strftime("%I:%M %p") %></p>
+      </div>
     </div>
-    <hr />
-    <div class="event-body">
-      <p>Name: <%= @event.title %></p>
-      <p>Description: <%= @event.description %></p>
-      <p>Location: <%= @event.location %></p>
-      <p>Date: <%= @event.date.strftime("%A, %B %d, %Y") %></p>
-      <p>Time: <%= @event.start_time.strftime("%I:%M %p") %> to <%=@event.end_time.strftime("%I:%M %p") %></p>
-    </div>  
   </div>
   <div class="col-md-3"></div>
 <div>

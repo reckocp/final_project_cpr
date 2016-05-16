@@ -11,6 +11,8 @@ var UserSearch = React.createClass({
     filterList: function(e){
        var searchReturn = this.state.allUsers.filter(function (user) {
          return (user.username.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1 ||
+                 user.city.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1 ||
+                 user.state.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1 ||
                  user.party.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
        });
        this.setState({
@@ -41,14 +43,30 @@ var UserSearch = React.createClass({
               onChange={this.filterList} value={this.state.search}
               placeholder='Who are you looking for?' />
           </div>
-          {this.state.filteredUsers.map(function (user) {
-            return (
-              <div key={user.id} >
-                <p><a href={'/users/' + user.id}> {user.username} </a></p>
-                <p>{user.party}</p>
-              </div>
-            );
-          })}
+          <div className="table-responsive">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th><strong>Username</strong></th>
+                  <th><strong>City</strong></th>
+                  <th><strong>State</strong></th>
+                  <th><strong>Political Affiliation</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.filteredUsers.map(function (user) {
+                  return (
+                    <tr key={user.id} >
+                      <td><a href={'/users/' + user.id}> {user.username} </a></td>
+                      <td>{user.city}</td>
+                      <td>{user.state}</td>
+                      <td>{user.party}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </section>
       );
     },

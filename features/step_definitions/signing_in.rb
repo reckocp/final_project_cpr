@@ -17,6 +17,9 @@ end
 When(/^I click "([^"]*)"$/) do |arg1|
   click_link(arg1, match: :first)
 end
+When(/^I fill in "([^"]*)" with "([^"]*)" within "([^"]*)"$/) do |field, content, parent|
+ within(parent){fill_in(field, with: content)}
+end
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, content|
   fill_in(field, with: content, match: :first)
 end

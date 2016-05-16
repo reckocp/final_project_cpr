@@ -8,7 +8,7 @@
 <hr class="welcome-hr" />
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-sm-3">
       <div class="dash-grids">
         <div class='column-header'>
           <h4>Your Elected Officials</h4>
@@ -29,7 +29,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <div class="dash-grids">
         <div class='column-header'>
           <h4>Posts Feed</h4>
@@ -40,22 +40,24 @@
             <p>You have no posts.</p>
           <% end %>
           <% @posts.each do |post| %>
-              <h5><strong><a href="<%= post.body %>"><%= post.title %></a></strong></h5>
-              <div class="posts-inline">
+              <h4><strong><a href="<%= post.body %>"><%= post.title %></a></strong></h4>
+              <div class="posts-links">
                 <p>posted by <%= link_to post.user.username, user_path(post.user.id), method: :get %> <%= time_ago_in_words(post.created_at) %> ago</p>
+              </div>
+              <div class="posts-links-two">
                 <% if post.comments.count > 1 %>
-                  <strong class="view_post_link"><%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
+                  <strong class="view_post_link"><i class="fa fa-comment-o" aria-hidden="true"></i> <%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
                 <% elsif post.comments.count == 0 %>
-                  <strong class="view_post_link"><%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
+                  <strong class="view_post_link"><i class="fa fa-comment-o" aria-hidden="true"></i> <%= link_to "#{post.comments.count} comments", post_path(post.id), method: :get %></strong>
                 <% else %>
-                  <strong class="view_post_link"><%= link_to "#{post.comments.count} comment", post_path(post.id), method: :get %></strong>
+                  <strong class="view_post_link"><i class="fa fa-comment-o" aria-hidden="true"></i> <%= link_to "#{post.comments.count} comment", post_path(post.id), method: :get %></strong>
                 <% end %>
               </div>
           <% end %>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-sm-3">
       <div class="dash-grids">
         <div class='column-header'>
           <h4>Spotlight</h4>

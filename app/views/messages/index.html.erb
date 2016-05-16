@@ -1,19 +1,40 @@
-<h3>Messages</h3>
-<hr />
-<% if @messages.empty? %>
-  <h4>You have no messages with this user yet.</h4>
-<% else %>
-  <% @messages.each do |message| %>
-    <p><strong><%= message.user.username %></strong>: <%= message.body %></p>
-  <% end %>
-<% end %>
-<hr />
-<%= form_for [@conversation, Message.new] do |f| %>
- <div class="field">
-   <%= f.text_area :body %>
-   <%= f.hidden_field :user_id, :value => current_user.id %>
- </div>
- <div class="actions">
-     <%= f.submit "Send", id: "admin-buttons" %>
- </div>
-<% end %>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <h3>Messages</h3>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <hr />
+    <% if @messages.empty? %>
+      <h4>You have no messages with this user yet.</h4>
+    <% else %>
+      <% @messages.each do |message| %>
+        <% if message.user == current_user%>
+          <p class="current_user_message"><b><%= message.user.username %></b>: <%= message.body %></p>
+        <% else %>
+          <p><b><%= message.user.username %></b>: <%= message.body %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+    <hr />
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <%= form_for [@conversation, Message.new] do |f| %>
+     <div class="field">
+       <%= f.text_area :body, style: "width: 100%"%>
+       <%= f.hidden_field :user_id, :value => current_user.id %>
+     </div>
+     <div class="actions">
+         <%= f.submit "Send", id: "message-buttons", class: "btn"%>
+     </div>
+    <% end %>
+  <div class="col-sm-3"></div>
+</div>

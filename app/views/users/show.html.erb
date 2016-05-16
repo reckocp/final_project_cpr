@@ -8,7 +8,7 @@
       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" id="admin-buttons">
         <%= link_to 'Send a message!', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "message-button" %>
       </button>
-    <% end %>  
+    <% end %>
     <hr />
 
     <h4>User Post History:</h4>
@@ -16,10 +16,8 @@
      <p><%= @user.username %> hasn't made any posts yet.</p>
     <% end %>
     <% @user.posts.each do |post| %>
-    <ol>
-      <li><p><a href="<%= post.body %>"><%= post.title %></a></p>
-      <p class="view_post_link"><%= link_to "View Post", post_path(post.id), method: :get %></p></li>
-    </ol>
+      <p><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="<%= post.body %>"><%= post.title %></a></p>
+      <p class="view_post_link"><%= link_to "View Post", post_path(post.id), method: :get %></p>
     <% end %>
 
     <hr />
@@ -29,9 +27,8 @@
      <p><%= @user.username %> hasn't made any comments yet.</p>
     <% end %>
     <% @user.comments.each do |comment| %>
-    <ol>
-     <li><p><%= comment.body %></p></li>
-    </ol>
+       <p><i class="fa fa-caret-right" aria-hidden="true"></i> <%= comment.body %></p>
+       <p class="view_post_link"><%= link_to "View Post", post_path(comment.post.id), method: :get %></p></li>
     <% end %>
 
   </div>
