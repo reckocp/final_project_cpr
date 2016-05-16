@@ -300,16 +300,8 @@ body {
 .posts-links-two {
   margin-bottom: 18px;
 }
-li.active {
- background: #3CC47C;
-}
-
-ul.nav.navbar-nav > li > a.nav-link {
-   color: white;
-   background-color: #3CC47C;
-   &:hover, &:focus, &:active {
-     background-color: darken(#3CC47C, 5%);
-   }
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: #3CC47C;
 }
 
 #message-buttons {
