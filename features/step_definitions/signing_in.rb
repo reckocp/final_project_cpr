@@ -1,0 +1,28 @@
+Given(/^I have an existing account$/) do
+  user = User.create!(
+    username: "theironyard",
+    email: "test@theironyard.com",
+    password: "password",
+    street: "1801 Rio Grande St",
+    city: "Austin",
+    state: "TX",
+    zip: "78701",
+    party: "Fun",
+    admin: false,
+  )
+end
+When(/^I go to the root path$/) do
+  visit('/')
+end
+When(/^I click "([^"]*)"$/) do |arg1|
+  click_link(arg1, match: :first)
+end
+When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, content|
+  fill_in(field, with: content, match: :first)
+end
+Then(/^I should see "([^"]*)"$/) do |text|
+  assert page.has_content?(text)
+end
+When(/^I press "([^"]*)"$/) do |arg1|
+  click_button(arg1)
+end

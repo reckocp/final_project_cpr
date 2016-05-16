@@ -48,8 +48,11 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'capybara'
+  gem 'cucumber-rails', require: false
+  gem "codeclimate-test-reporter", require: nil
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'spring'
 end
 
@@ -66,7 +69,6 @@ gem 'devise'
 gem 'react-rails', '~> 1.7.0'
 gem "simple_calendar", "~> 2.0"
 
-gem "codeclimate-test-reporter", group: :test
 
 
 

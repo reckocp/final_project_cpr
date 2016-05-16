@@ -39,8 +39,8 @@ var Comments = React.createClass({
       {this.state.postComments.map(function(comment){
         return (
             <div key={comment.id}>
+              <p><u><a href={'/users/' + comment.user.id}>{comment.user.username}</a></u></p>
               <p><strong>{comment.body}</strong></p>
-              <p>posted by <a href={'/users/' + comment.user.id}>{comment.user.username}</a></p>
             </div>
         );
       })}

@@ -2,10 +2,10 @@
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <h3><a href="<%= @post.body %>"><%= @post.title %></a></h3>
+    <p>posted by <%= link_to @post.user.username, user_path(@post.user.id), method: :get %> <%= time_ago_in_words(@post.created_at) %> ago</p>
     <div class="panel panel-default">
       <div class="panel-body"><%= @post.summary %></div>
     </div>
-    <p class="posted-by">posted by <%= link_to @post.user.username, user_path(@post.user.id), method: :get %> <%= time_ago_in_words(@post.created_at) %> ago</p>
     <% if current_user == @post.user %>
       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myEditModal">
         Edit Post

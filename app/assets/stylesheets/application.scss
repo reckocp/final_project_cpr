@@ -250,9 +250,9 @@ body {
 .modal-header-text {
   font-family: 'Bitter', serif;
 }
-// .logo-font {
-//   display: inline-block;
-// }
+.logo-font {
+  display: inline-block;
+}
 .splash-icon {
   border: 0.2em solid black;
   border-radius: 100px;
@@ -262,12 +262,12 @@ body {
 }
 .logo-text {
   font-family: 'Bitter', serif;
-  float: left;
   font-weight: bold;
   font-size: 0.8em;
+  float: left;
 }
 #logo {
-  float: left;
+  display:inline-block;;
 }
 .spotlight-hr {
   border: 0;
@@ -276,4 +276,7 @@ body {
   background-image: #1E392A;
   margin-top: 0;
   width: 80%;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
+  // border-radius: 15px;
 }
