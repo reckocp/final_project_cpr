@@ -1,23 +1,32 @@
+<div class="modal-text">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2>Create Event</h2>
 
-<%= form_for [Event.new] do |f| %>
-  <div class="field">
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.label :title %>
-    <p><%= f.text_field :title %></p>
-    <%= f.label :description %>
-    <p><%= f.text_area :description %></p>
-    <%= f.label :location %>
-    <p><%= f.text_field :location %></p>
-    <%= f.label :date %>
-    <p><%= f.date_field :date %></p>
-    <%= f.label :start_time %>
-    <p><%= f.time_field :start_time %></p>
-    <%= f.label :end_time %>
-    <p><%= f.time_field :end_time %></p>
-    <%= f.label :level_of_government %>
-    <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']] %></p>
+      <%= form_for [Event.new] do |f| %>
+        <div class="field">
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.label :title %>
+          <p><%= f.text_field :title, class: "input-field"   %></p>
+          <%= f.label :description %>
+          <p><%= f.text_area :description, class: "input-field"   %></p>
+          <%= f.label :location %>
+          <p><%= f.text_field :location, class: "input-field"   %></p>
+          <%= f.label :date %>
+          <p><%= f.date_field :date, class: "input-field"   %></p>
+          <%= f.label :start_time %>
+          <p><%= f.time_field :start_time, class: "input-field"   %></p>
+          <%= f.label :end_time %>
+          <p><%= f.time_field :end_time, class: "input-field"   %></p>
+          <%= f.label :level_of_government %>
+          <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']], class: "input-field"   %></p>
+        </div>
+        <div class="actions">
+          <%= f.submit "Submit", id: "admin-buttons", class: "btn"  %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-2"></div>
   </div>
-  <div class="actions">
-    <%= f.submit "Submit" %>
-  </div>
-<% end %>
+</div>
