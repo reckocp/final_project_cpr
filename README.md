@@ -1,30 +1,4 @@
 Heroku: https://assembly-point.herokuapp.com/
-
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+[![Code Climate](https://codeclimate.com/repos/57390395311970069500a4c6/badges/ea078f320bc47883926f/gpa.svg)](https://codeclimate.com/repos/57390395311970069500a4c6/feed)
+[![Test Coverage](https://codeclimate.com/repos/57390395311970069500a4c6/badges/ea078f320bc47883926f/coverage.svg)](https://codeclimate.com/repos/57390395311970069500a4c6/coverage)
+[![Issue Count](https://codeclimate.com/repos/57390395311970069500a4c6/badges/ea078f320bc47883926f/issue_count.svg)](https://codeclimate.com/repos/57390395311970069500a4c6/feed)
