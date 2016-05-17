@@ -103,8 +103,14 @@
 
 </body>
 <div class="container">
-  <footer>
-    <p class="footer-padding"><%= link_to "About", dashboard_about_path, method: :get, class: "footer-link" %></p>
-  </footer>
+  <nav class="navbar navbar-default">
+    <div class="row">
+      <div class="col-sm-10"></div>
+      <div class="col-sm-1">
+        <p class="footer-padding"><%= link_to "About", dashboard_about_path, method: :get, class: "footer-link" %></p>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </nav>
 </div>
 </html>
