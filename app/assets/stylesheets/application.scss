@@ -20,6 +20,7 @@
  body {
    padding-top: 20px;
    padding-bottom: 20px;
+   height: 100%;
  }
 
  .header-fill {
@@ -319,4 +320,51 @@ body {
 
 .current_user_message {
   text-align: right;
+}
+
+footer {
+  background-color: #3CC47C;
+}
+.footer {
+  font-family: 'Bitter', serif;
+  color: white;
+  margin-top: 5em;
+  background-color: #3CC47C;
+  border-radius: 1px;
+  display: block;
+  bottom: 0;
+  position: absolute;
+}
+.footer-padding {
+  padding: 1em;
+  color: white;
+  text-decoration: none;
+}
+.footer-link {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Bitter', serif;
+}
+.footer-link:hover {
+  text-decoration: underline;
+  color: #1E392A;
+}
+.bio-section {
+  text-align: center;
+}
+.about-logo {
+  font-family: 'Bitter', serif;
+}
+#panel-height {
+  padding-top: 1em;
+  padding-bottom: 3.5em;
+}
+.about-headers {
+  margin-top: 2em;
+  font-weight: bolder;
+}
+.about-h4 {
+  margin-top: -4px;
+  margin-bottom: 7px;
 }

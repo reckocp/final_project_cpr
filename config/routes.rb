@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     root :to => 'politicians#index', as: :authenticated
   end
   root :to => 'dashboard#home'
+  get 'dashboard/about' => 'dashboard#about'
+
 
 
   resources :posts do
