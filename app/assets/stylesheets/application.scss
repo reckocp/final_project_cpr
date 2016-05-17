@@ -40,6 +40,7 @@
   }
 }
 .navbar-header{
+  position: relative;
   a.navbar-brand {
     color: white;
   }
@@ -260,7 +261,7 @@ body {
   font-family: 'Bitter', serif;
 }
 .logo-font {
-  display: inline-block;
+  // display: inline-block;
 }
 .splash-icon {
   border: 0.2em solid black;
@@ -269,18 +270,24 @@ body {
 .nav-dropdown-padding {
   text-align: center;
 }
-
+@mixin linear($float:left) {
+   display: inline-block;
+   position: relative;
+   float: $float;
+}
 .logo-text {
+  @include linear;
   font-family: 'Bitter', serif;
   font-weight: bold;
   font-size: 1.7em;
-  float:left;
   line-height: 22px;
-  margin-left: 0.2em;
+  margin-left: 1.2em;
 }
 
 i {
+  @include linear;
   float: left;
+
 }
 
 .spotlight-hr {
@@ -346,6 +353,7 @@ footer {
   padding: 1em;
   color: white;
   text-decoration: none;
+  margin-top: 2em;
 }
 .footer-link {
   color: white;
@@ -374,4 +382,8 @@ footer {
 .about-h4 {
   margin-top: -4px;
   margin-bottom: 7px;
+}
+#compass-logo {
+  position: absolute;
+  top: 7px;
 }
