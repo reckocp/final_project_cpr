@@ -4,18 +4,19 @@
  <div>
       <% if @conversations.empty? %>
         <p>You have no conversations</p>
-      <% end %>
-      <% @conversations.each do |conversation| %>
-        <% if conversation.sender_id == current_user.id ||  conversation.recipient_id == current_user.id %>
-          <% if conversation.sender_id == current_user.id %>
-            <% recipient = User.find(conversation.recipient_id) %>
-          <% else %>
-            <% recipient = User.find(conversation.sender_id) %>
+      <% else %>
+        <% @conversations.each do |conversation| %>
+          <% if conversation.sender_id == current_user.id ||  conversation.recipient_id == current_user.id %>
+            <% if conversation.sender_id == current_user.id %>
+              <% recipient = User.find(conversation.recipient_id) %>
+            <% else %>
+              <% recipient = User.find(conversation.sender_id) %>
+            <% end %>
+            <h4><%= link_to recipient.username, conversation_messages_path(conversation)%></h4>
           <% end %>
-          <h4><%= link_to recipient.username, conversation_messages_path(conversation)%></h4>
-        <% end %>
-        <p class="tab"><i class="fa fa-inbox" aria-hidden="true"></i> last message received <%= time_ago_in_words(conversation.messages.last.created_at) %> ago</p>
-        <hr class="welcome-hr" />
+          <p class="tab"><i class="fa fa-inbox" aria-hidden="true"></i> last message received <%= time_ago_in_words(conversation.messages.last.created_at) %> ago</p>
+          <hr class="welcome-hr" />
+        <%end %>  
       <% end %>
 </div>
 <hr />
