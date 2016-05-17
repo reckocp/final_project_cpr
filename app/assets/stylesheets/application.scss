@@ -273,13 +273,14 @@ body {
 .logo-text {
   font-family: 'Bitter', serif;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: 1.7em;
   float:left;
   line-height: 22px;
+  margin-left: 0.2em;
 }
 
-#logo:after {
-  position: relative;
+i {
+  float: left;
 }
 
 .spotlight-hr {
