@@ -33,7 +33,7 @@
 
         <div class ="field">
           <%= f.label :state %> <br />
-          <%= select_tag :state, options_for_select(us_states), class: "input-field"  %>
+          <%= f.select :state, options_for_select(us_states), class: "input-field"  %>
         </div>
 
         <div class="field">

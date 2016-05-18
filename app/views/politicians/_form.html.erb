@@ -16,7 +16,7 @@
             <% office.fetch('officials', []).each do |official| %>
               <% if official['photoUrl'].nil? %>
                 <div class="imageContainer">
-                  <img src="/assets/no-profile-img.gif"/>
+                  <%= image_tag('no-profile-img.gif') %>
                 </div>
               <% else %>
                 <div class="imageContainer">
@@ -44,15 +44,21 @@
               <% official.fetch('emails', []).each do |email| %>
                 <p><%= email %></p>
               <% end %>
-              <% official.fetch('channels', []).each do |channel| %>
-                <% if channel['type'].downcase == 'facebook' %>
-                  <a href="https://www.facebook.com/<%= channel['id'] %>"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
-                <% elsif channel['type'].downcase == 'twitter' %>
-                  <a href="https://www.twitter.com/<%= channel['id'] %>"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-                <% elsif channel['type'].downcase == 'youtube' %>
-                  <a href="https://www.youtube.com/<%= channel['id'] %>"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
-                <% end %>
-              <% end %>
+              <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-5">
+                  <% official.fetch('channels', []).each do |channel| %>
+                    <% if channel['type'].downcase == 'facebook' %>
+                      <a href="https://www.facebook.com/<%= channel['id'] %>"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
+                    <% elsif channel['type'].downcase == 'twitter' %>
+                      <a href="https://www.twitter.com/<%= channel['id'] %>"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+                    <% elsif channel['type'].downcase == 'youtube' %>
+                      <a href="https://www.youtube.com/<%= channel['id'] %>"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="col-sm-3"></div>
+              </div>
             <% end %>
           </div>
         </div>

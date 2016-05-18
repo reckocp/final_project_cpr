@@ -335,6 +335,13 @@ i {
 
 .current_user_message {
   text-align: right;
+
+  .username {
+    font-size: 1.25em;
+  }
+}
+.user-username {
+  font-size: 1.25em;
 }
 
 footer {
@@ -386,4 +393,8 @@ footer {
 #compass-logo {
   position: absolute;
   top: 7px;
+}
+.sm-icons .fa {
+  display: inline-block;
+  vertical-align: middle;
 }

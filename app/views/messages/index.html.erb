@@ -14,9 +14,13 @@
     <% else %>
       <% @messages.each do |message| %>
         <% if message.user == current_user%>
-          <p class="current_user_message"><u><%= message.user.username %></u>: <%= message.body %> (<i><%= time_ago_in_words(message.created_at) %></i> ago)</p>
+          <p class="current_user_message">
+            <span class='username'><%= message.user.username %></span>: <%= message.body %> (<em><%= time_ago_in_words(message.created_at) %></em> ago)
+          </p>
         <% else %>
-          <p><u><%= message.user.username %></u>: <%= message.body %> (<i><%= time_ago_in_words(message.created_at) %></i> ago)</p>
+          <p>
+            <span class="user-username"><%= message.user.username %></span>: <%= message.body %> (<em><%= time_ago_in_words(message.created_at) %></em> ago)
+          </p>
         <% end %>
       <% end %>
     <% end %>
