@@ -103,6 +103,7 @@ body {
 .search-box {
   transition: width $tl, border-radius $tl, background $tl, box-shadow $tl;
   width: 40px;height: 40px;
+  margin-left: 5em;
   border-radius: 20px;border: none;
   cursor: pointer;
   background: rgb(235, 235, 235);
@@ -119,7 +120,7 @@ body {
     box-shadow: none;
     padding-left: 13px;
     cursor: text;
-    width: 98%;
+    width: 50%;
     border-radius: auto;
     background: rgb(235, 235, 235);
     color: black;
