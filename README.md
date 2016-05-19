@@ -16,11 +16,9 @@ Heroku: https://assembly-point.herokuapp.com/
 > comments, as well as incorpoate other databases, such as the Sunlight Congress API, to add more information about officials and
 > their political positions.
 
-<div align="center">
 Mockups
 ![Sign Up Screen](app/assets/images/sign_up_screen.png)
 ![Login Screen](app/assets/images/login_screen.png)
 ![Dashboard](app/assets/images/Dashboard.png)
 ![National/State/Local](app/assets/images/National_State_Local_dash.png)
 ![Post Show](app/assets/images/Single_Article_Show_Page.png)
-</div>
