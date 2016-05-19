@@ -8,3 +8,4 @@ Mockups
 <%= image_tag('Dashboard.png') %>
 <%= image_tag('National_State_Local_Dash.png') %>
 <%= image_tag('Single_Article_Show_Page.png') %>
+![Sign Up Screen](/assets/images/sign_up_screen.png)
