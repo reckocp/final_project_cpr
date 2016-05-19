@@ -7,13 +7,13 @@
       <%= form_for [Post.new] do |f| %>
         <div class="field">
           <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.label :link %>
+          <%= f.label :body, "Link" %>
           <p><%= f.url_field :body, :value => "http://", class: "input-field" %></p>
-          <%= f.label :link_title %>
+          <%= f.label :title, "Link title" %>
           <p><%= f.text_field :title, class: "input-field"  %></p>
           <%= f.label :summary %>
           <p><%= f.text_area :summary, class: "input-field"  %></p>
-          <%= f.label :level_of_government %>
+          <%= f.label :level, "Level of government" %>
           <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']], class: "input-field"  %></p>
         </div>
         <div class="actions">

@@ -22,7 +22,7 @@ Heroku: https://assembly-point.herokuapp.com/
 ##Pretend this is a UML plz
 
 ##Mockups
-
+![UML](erd.pdf)
 ![Sign Up Screen](app/assets/images/sign_up_screen.png)
 ![Login Screen](app/assets/images/login_screen.png)
 ![Dashboard](app/assets/images/Dashboard.png)

@@ -54,6 +54,8 @@ group :development do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'spring'
+  gem "rails-erd"
+
 end
 
 

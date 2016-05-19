@@ -19,7 +19,7 @@
           <p><%= f.time_field :start_time, class: "input-field"   %></p>
           <%= f.label :end_time %>
           <p><%= f.time_field :end_time, class: "input-field"   %></p>
-          <%= f.label :level_of_government %>
+          <%= f.label :level, "Level of government" %>
           <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']], class: "input-field"   %></p>
         </div>
         <div class="actions">

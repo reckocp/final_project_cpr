@@ -13,9 +13,9 @@
           <p><%= f.text_area :description, class: "input-field"   %></p>
           <%= f.label :date %>
           <p><%= f.date_field :date, class: "input-field"   %></p>
-          <%= f.label :link %>
+          <%= f.label :url, "Link" %>
           <p><%= f.url_field :url, :value => "http://", class: "input-field"   %></p>
-          <%= f.label :level_of_government %>
+          <%= f.label :level, "Level of Government" %>
           <p><%= f.select :level, [['National', 'national'],['State', 'state'],['Local', 'local']], class: "input-field"   %></p>
         </div>
         <div class="actions">
