@@ -23,7 +23,7 @@ Heroku: https://assembly-point.herokuapp.com/
 
 ##Mockups
 ![UML](app/assets/images/erd.pdf)
-![UML](/erb.png)
+![UML](/erd.png)
 ![Sign Up Screen](app/assets/images/sign_up_screen.png)
 ![Login Screen](app/assets/images/login_screen.png)
 ![Dashboard](app/assets/images/Dashboard.png)
