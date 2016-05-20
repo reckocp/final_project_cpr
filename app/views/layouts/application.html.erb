@@ -103,18 +103,20 @@
 
 </body>
 <div class="container">
-  <nav class="navbar navbar-default">
-    <div class="row">
-      <div class="col-sm-1"></div>
-      <div class="col-sm-3">
-        <p class="footer-padding-left">Created by <a class ="footer-link" href="https://github.com/reckocp">Colin Recko</a></p>
+  <div class="margin-footer">
+    <nav class="navbar navbar-default">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+          <p class="footer-padding-left">Created by <a class ="footer-link" href="https://github.com/reckocp">Colin Recko</a></p>
+        </div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-1">
+          <p class="footer-padding"><%= link_to "About", dashboard_about_path, method: :get, class: "footer-link" %></p>
+        </div>
+        <div class="col-sm-1"></div>
       </div>
-      <div class="col-sm-6"></div>
-      <div class="col-sm-1">
-        <p class="footer-padding"><%= link_to "About", dashboard_about_path, method: :get, class: "footer-link" %></p>
-      </div>
-      <div class="col-sm-1"></div>
-    </div>
-  </nav>
+    </nav>
+  </div>  
 </div>
 </html>
