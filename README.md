@@ -20,9 +20,10 @@ Trello: https://trello.com/b/9QYHZIZa/final-project
 
 > In the future, I would like to add more functionality to Assembly Point. I hope to incorporate a voting system for posts and comments, as well as incorporate other databases, such as the Sunlight Congress API, to add more information about officials and their political positions.
 
+##UML
+![UML](/erd.png)
 
 ##Mockups
-![UML](/erd.png)
 ![Sign Up Screen](app/assets/images/sign_up_screen.png)
 ![Login Screen](app/assets/images/login_screen.png)
 ![Dashboard](app/assets/images/Dashboard.png)
